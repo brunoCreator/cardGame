@@ -72,9 +72,9 @@ public class Battlefield {
             } else if (items[i].equals("#")) {//carta
                 if (i - 1 >= 0 && i + 1 <= items.length) {
                     if (alvo) {
-                        total += cartas;
+                        //total += cartas;
                     } else {
-                        total += ecartas;
+                        //total += ecartas;
                     }
                 }
             }
