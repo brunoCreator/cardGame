@@ -281,7 +281,7 @@ public class DeckView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        if (row > 0 && decks.size() > 0) {
+        if (row >= 0 && decks.size() > 0) {
             decks.set(row, new Deck(row,(String) jTextField1.getText(),getItens()));
         } else {
             decks.add(new Deck(decks.size(),(String) jTextField1.getText(),getItens()));
@@ -326,16 +326,16 @@ public class DeckView extends javax.swing.JPanel {
 
     void preencher(){        
         Deck ag = decks.get(row);
-        System.out.println(row);
-        System.out.println(ag.getNome());
         jTextField1.setText((String)ag.getNome());
         
         selec.setRowCount(0);
-        for (int q = 0; q < cards.size(); q++) {
+ 
+            for (int q = 0; q < ag.getCards().size(); q++) {
             Card s = ag.getCards().get(q);
             selec.insertRow(selec.getRowCount(), new Object[]{q,
                 (String) s.getNome(),
                 (String) s.getDescricao()});
+        
         }
         select = true;
     }
