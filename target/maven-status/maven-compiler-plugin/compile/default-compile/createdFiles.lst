@@ -33,7 +33,6 @@ br\com\harpiastudios\cardgame\view\CardView$3.class
 br\com\harpiastudios\cardgame\view\MenuView$2.class
 br\com\harpiastudios\cardgame\view\CardView$10.class
 br\com\harpiastudios\cardgame\view\JogarView.class
-br\com\harpiastudios\cardgame\view\JogarView$4.class
 br\com\harpiastudios\cardgame\view\BattlefieldView$7.class
 br\com\harpiastudios\cardgame\view\DeckView$3.class
 br\com\harpiastudios\cardgame\model\Hand.class
@@ -52,7 +51,6 @@ br\com\harpiastudios\cardgame\view\CardView$2.class
 br\com\harpiastudios\cardgame\view\CardView.class
 br\com\harpiastudios\cardgame\model\Enemy.class
 br\com\harpiastudios\cardgame\view\BattlefieldView$4.class
-br\com\harpiastudios\cardgame\view\JogarView$5.class
 br\com\harpiastudios\cardgame\view\BattlefieldView$8.class
 br\com\harpiastudios\cardgame\view\MenuView$4.class
 br\com\harpiastudios\cardgame\enumerator\DifficultyEnum.class
