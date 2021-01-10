@@ -26,6 +26,12 @@ public class Battlefield {
         this.player = player;
         this.enemy = enemy;
         this.view = view;
+        int index = 0;
+        for(Card card : player.getHand()) {
+            fields.get(index).setCarta(card);
+            fields.get(index).Update();
+            index++;
+        }
     }
 
     public TurnEnum getTurn() {
@@ -33,9 +39,12 @@ public class Battlefield {
     }
     
     public void SkipTurn() {
+        String log = view.getTaLog().getText();
         if(turn == TurnEnum.PLAYER ) {
             turn = TurnEnum.ENEMY;
+            view.getTaLog().setText(log + "\n" + "(" + String.valueOf(turnCount) + ")" + " O jogador pulou o turno.");
         }else{
+            view.getTaLog().setText(log + "\n" + "(" + String.valueOf(turnCount) + ")" + " O inimigo pulou o turno.");
             turn = TurnEnum.PLAYER;
         }
         turnCount++;

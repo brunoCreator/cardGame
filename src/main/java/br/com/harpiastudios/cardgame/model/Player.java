@@ -17,10 +17,12 @@ public class Player {
     protected float defesa = 10;
     protected float mana = 1;
     protected Deck deck;
+    protected ArrayList<Card> hand = new ArrayList();
 
     public Player(String nome, Deck deck) {
         this.nome = nome;
         this.deck = deck;
+        hand = deck.getListForHand();
     }
     
     public String getNome() {
@@ -77,5 +79,13 @@ public class Player {
     
     public void decreaseDefesa(float value) {
         this.defesa -= value;
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
+    public void setHand(ArrayList<Card> hand) {
+        this.hand = hand;
     }
 }

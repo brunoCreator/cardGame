@@ -63,5 +63,4 @@ public class Card {
     public void setEfeito(Effect[] efeito) {
         this.efeito = efeito;
     }
-    
 }
