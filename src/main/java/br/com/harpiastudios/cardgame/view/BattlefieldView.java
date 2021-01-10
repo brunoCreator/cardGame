@@ -14,7 +14,6 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class BattlefieldView extends javax.swing.JDialog {
-
     private Battlefield battlefield;
     private ArrayList<CardField> fields = new ArrayList();
 
