@@ -52,14 +52,18 @@ public class Deck {
     public void setCards(Stack<Card> cards) {
         this.cards = cards;
     }
-    
+
     public Card get() {
         return cards.pop();
     }
-    
+
     public ArrayList<Card> getListForHand() {
         ArrayList<Card> hand = new ArrayList();
-        for(int i = 0; i < 6; i++) hand.add(get());
+        if (cards.size() > 6) {
+            for (int i = 0; i < 6; i++) {
+                hand.add(get());
+            }
+        }
         return hand;
     }
 }

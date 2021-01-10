@@ -36,4 +36,6 @@ public class Enemy extends Player {
     public void setHistoria(String historia) {
         this.historia = historia;
     }
+    
+    
 }

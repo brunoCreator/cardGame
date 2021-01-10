@@ -5,8 +5,6 @@
  */
 package br.com.harpiastudios.cardgame.view;
 
-
-
 import br.com.harpiastudios.cardgame.model.Card;
 import br.com.harpiastudios.cardgame.model.Effect;
 import br.com.harpiastudios.cardgame.model.Storage;
@@ -18,17 +16,17 @@ import java.util.ArrayList;
  */
 public class CardView extends javax.swing.JPanel {
 
-    Storage storage;
-    ArrayList<Card> cards;
-    
+    private Storage storage;
+    private ArrayList<Card> cards;
+
     public CardView(Storage storage) {
         initComponents();
         this.storage = storage;
         this.cards = storage.getCards();
     }
-    
+
     int selec = 0;
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -419,48 +417,46 @@ public class CardView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(selec > 0 && cards.size() > 0){
-            cards.set(selec, new Card(cards.size(),(String)jTextField1.getText(),
-            (String)jTextField2.getText(),
-             Integer.parseInt(jTextField3.getText()),
-            new Effect[]{new Effect(true,
-                (String)jTextField6.getText(),
-                (String)jTextField7.getText(),
-                (String)jTextField8.getText(),
-                (String)jTextField9.getText()),
-                new Effect(false,
-                (String)jTextField10.getText(),
-                (String)jTextField11.getText(),
-                (String)jTextField12.getText(),
-                (String)jTextField13.getText())}));
-        }else{
-            cards.add(new Card(cards.size(),(String)jTextField1.getText(),
-            (String)jTextField2.getText(),
-             Integer.parseInt(jTextField3.getText()),
-            new Effect[]{new Effect(true,
-                (String)jTextField6.getText(),
-                (String)jTextField7.getText(),
-                (String)jTextField8.getText(),
-                (String)jTextField9.getText()),
-                new Effect(false,
-                (String)jTextField10.getText(),
-                (String)jTextField11.getText(),
-                (String)jTextField12.getText(),
-                (String)jTextField13.getText())}));
+        if (selec > 0 && cards.size() > 0) {
+            cards.set(selec, new Card(cards.size(), (String) jTextField1.getText(),
+                    (String) jTextField2.getText(),
+                    Integer.parseInt(jTextField3.getText()),
+                    new Effect[]{new Effect(true,
+                                (String) jTextField6.getText(),
+                                (String) jTextField7.getText(),
+                                (String) jTextField8.getText(),
+                                (String) jTextField9.getText()),
+                        new Effect(false,
+                                (String) jTextField10.getText(),
+                                (String) jTextField11.getText(),
+                                (String) jTextField12.getText(),
+                                (String) jTextField13.getText())}));
+        } else {
+            cards.add(new Card(cards.size(), (String) jTextField1.getText(),
+                    (String) jTextField2.getText(),
+                    Integer.parseInt(jTextField3.getText()),
+                    new Effect[]{new Effect(true,
+                                (String) jTextField6.getText(),
+                                (String) jTextField7.getText(),
+                                (String) jTextField8.getText(),
+                                (String) jTextField9.getText()),
+                        new Effect(false,
+                                (String) jTextField10.getText(),
+                                (String) jTextField11.getText(),
+                                (String) jTextField12.getText(),
+                                (String) jTextField13.getText())}));
         }
-            limpar();
+        limpar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(cards.size()-1 > 0 && selec > 0){
+        if (cards.size() - 1 > 0 && selec > 0) {
             selec--;
             preencher(cards.get(selec));
-        }
-        else if(selec == 0){
+        } else if (selec == 0) {
             selec = 0;
             preencher(cards.get(selec));
-        }
-        else{
+        } else {
             selec = -1;
             limpar();
         }
@@ -468,15 +464,13 @@ public class CardView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(selec < cards.size()-1){
+        if (selec < cards.size() - 1) {
             selec++;
             preencher(cards.get(selec));
-        } 
-        else if(selec == cards.size()-1){
-            selec = cards.size()-1;
+        } else if (selec == cards.size() - 1) {
+            selec = cards.size() - 1;
             preencher(cards.get(selec));
-        }
-        else{
+        } else {
             selec = -1;
             limpar();
         }
@@ -484,8 +478,9 @@ public class CardView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(selec > 0)
-        cards.remove(selec);
+        if (selec >= 0) {
+            cards.remove(selec);
+        }
         limpar();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -513,7 +508,7 @@ public class CardView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
-    void preencher(Card c){
+    void preencher(Card c) {
         jTextField1.setText(c.getNome());
         jTextField2.setText(c.getDescricao());
         jTextField3.setText(Integer.toString(c.getCusto()));
@@ -526,8 +521,8 @@ public class CardView extends javax.swing.JPanel {
         jTextField12.setText(c.getEfeito()[1].getDefesa());
         jTextField13.setText(c.getEfeito()[1].getCartas());
     }
-    
-    void limpar(){
+
+    void limpar() {
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");

@@ -15,13 +15,12 @@ import java.awt.CardLayout;
  */
 public class MenuView extends javax.swing.JFrame {
 
-    CardView card;
-    DeckView deck;
-    JogarView jogar;
+    private CardView card;
+    private DeckView deck;
+    private JogarView jogar;
+    private Storage storage;
+    private CardLayout cardLayout;
     
-    Storage storage;
-    
-    CardLayout cardLayout;
     public MenuView() {
         initComponents();
         
