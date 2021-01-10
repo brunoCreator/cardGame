@@ -1,0 +1,88 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.harpiastudios.cardgame.model;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Diego
+ */
+public class Battlefield {
+    private Player player;
+    private Enemy enemy;
+    private ArrayList<CardField> fields = new ArrayList();
+
+    public Battlefield(Player player, Enemy enemy) {
+        this.player = player;
+        this.enemy = enemy;
+    }
+    
+    
+    private int calculo(String input, int total,boolean alvo){
+        String[] items;
+        
+        items = input.split("((?<=([\\+\\-\\*\\^\\@\\#v]))|(?=([\\+\\-\\*\\^\\@\\#v])))");
+        
+        /*
+        if(items[0].matches("\\d+([.]\\d+)*")){
+            total = Integer.parseInt(items[0]);
+        }*/
+        
+        for (int i = 0; i < items.length; i++) {
+            System.out.println(items[i]);
+            if(items[i].equals("+")){
+                if(i-1 >= 0 && i+1 <= items.length){
+                total += Float.parseFloat(items[i+1]);
+                }
+            }else
+            if(items[i].equals("-")){
+                if(i-1>=0 && i+1<=items.length){
+                total -= Float.parseFloat(items[i+1]);
+                }
+            }else
+            if(items[i].equals("*")){
+                if(i-1>=0 && i+1<=items.length){
+                total *= Float.parseFloat(items[i+1]);
+                }
+            }else
+            if(items[i].equals("v")){//vida
+                if(i-1>=0 && i+1<=items.length){
+                    if(alvo)
+                        total += vida;
+                        else
+                        total += evida;
+            }
+            }else
+            if(items[i].equals("^")){//defesa
+                if(i-1>=0 && i+1<=items.length){
+                    if(alvo)
+                        total += defesa;
+                        else
+                        total += edefesa;
+                }
+            }else
+            if(items[i].equals("@")){//mana
+                if(i-1>=0 && i+1<=items.length){
+                    if(alvo)
+                    total += mana;
+                    else
+                        total += emana;
+                }
+            }else
+            if(items[i].equals("#")){//carta
+                if(i-1>=0 && i+1<=items.length){
+                    if(alvo)
+                    total += cartas;
+                    else
+                        total += ecartas;
+                }
+            }
+            
+        }
+        return total;
+    }
+}

@@ -1,0 +1,68 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.harpiastudios.cardgame.model;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+/**
+ *
+ * @author Diego
+ */
+public class CardField {
+    private JLabel nome;
+    private JLabel descricao;
+    private JPanel content;
+    
+    private Card carta;
+
+    public CardField(JLabel nome, JLabel descricao, JPanel content) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.content = content;
+    }
+    
+    public void Update() {
+        nome.setText(carta.getNome());
+        descricao.setText(carta.getDescricao());
+    }
+    
+    public void setEnabled(boolean value) {
+        content.setVisible(value);
+    }
+
+    public JLabel getNome() {
+        return nome;
+    }
+
+    public void setNome(JLabel nome) {
+        this.nome = nome;
+    }
+
+    public JLabel getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(JLabel descricao) {
+        this.descricao = descricao;
+    }
+
+    public JPanel getContent() {
+        return content;
+    }
+
+    public void setContent(JPanel content) {
+        this.content = content;
+    }
+
+    public Card getCarta() {
+        return carta;
+    }
+
+    public void setCarta(Card carta) {
+        this.carta = carta;
+    }
+}
