@@ -13,7 +13,8 @@ import br.com.harpiastudios.cardgame.model.Deck;
 import br.com.harpiastudios.cardgame.model.Enemy;
 import br.com.harpiastudios.cardgame.model.Player;
 import java.util.ArrayList;
-import java.util.Stack;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -31,7 +32,7 @@ public class BattlefieldView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         LoadFields();
-        battlefield = new Battlefield(new Player("John Doe", new Deck(2, "Teste", new Stack())), new Enemy("Darthvader", "Sei lá", new Deck(1, "Teste", new Stack()), DifficultyEnum.EASY), this);
+        battlefield = new Battlefield(new Player("John Doe", new Deck(2, "Teste", new ArrayList())), new Enemy("Darthvader", "Sei lá", new Deck(1, "Teste", new ArrayList()), DifficultyEnum.EASY), this);
         UpdateName();
     }
 
@@ -73,7 +74,7 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblTurn = new javax.swing.JLabel();
         btnSkipTurn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taLog = new javax.swing.JTextArea();
         jPanel19 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -480,11 +481,11 @@ public class BattlefieldView extends javax.swing.JDialog {
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Log:");
-        jScrollPane1.setViewportView(jTextArea1);
+        taLog.setEditable(false);
+        taLog.setColumns(20);
+        taLog.setRows(5);
+        taLog.setText("Log:");
+        jScrollPane1.setViewportView(taLog);
 
         jPanel19.setBackground(new java.awt.Color(231, 76, 60));
 
@@ -582,6 +583,7 @@ public class BattlefieldView extends javax.swing.JDialog {
 
     private void btnSkipTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkipTurnActionPerformed
         battlefield.SkipTurn();
+        ClearFields();
     }//GEN-LAST:event_btnSkipTurnActionPerformed
 
 
@@ -620,7 +622,6 @@ public class BattlefieldView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCardDescF1;
     private javax.swing.JLabel lblCardDescF2;
     private javax.swing.JLabel lblCardDescF3;
@@ -644,6 +645,7 @@ public class BattlefieldView extends javax.swing.JDialog {
     private javax.swing.JPanel pnCardF4;
     private javax.swing.JPanel pnCardF5;
     private javax.swing.JPanel pnCardF6;
+    private javax.swing.JTextArea taLog;
     // End of variables declaration//GEN-END:variables
 
     public static void main(String args[]) {
@@ -671,16 +673,29 @@ public class BattlefieldView extends javax.swing.JDialog {
         fields.add(new CardField(lblCardNameF6, lblCardDescF6, pnCardF6));
     }
 
+    public void ClearFields() {
+
+        fields.forEach(f -> {
+            if (f.isSelected()) {
+                f.setSelected(false);
+            }
+        });
+    }
+
     private void SelectField(int id) {
         CardField field = fields.get(id);
-        if (!field.isSelected()) {
-            fields.forEach(f -> {
-                if (f.isSelected()) {
-                    f.setSelected(false);
-                }
-            });
+        if (battlefield.getTurn() == TurnEnum.ENEMY) {
+            JOptionPane.showMessageDialog(null, "Aguarde seu turno para selecionar um efeito..");
+        } else {
+            if (!field.isSelected()) {
+                ClearFields();
+            }
+            field.setSelected(!field.isSelected());
         }
-        field.setSelected(!field.isSelected());
+    }
+
+    public JTextArea getTaLog() {
+        return taLog;
     }
 
 }
