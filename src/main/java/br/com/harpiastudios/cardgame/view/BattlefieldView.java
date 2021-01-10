@@ -5,13 +5,13 @@
  */
 package br.com.harpiastudios.cardgame.view;
 
-import br.com.harpiastudios.cardgame.enumerator.DifficultyEnum;
 import br.com.harpiastudios.cardgame.enumerator.TurnEnum;
 import br.com.harpiastudios.cardgame.model.Battlefield;
 import br.com.harpiastudios.cardgame.model.CardField;
 import br.com.harpiastudios.cardgame.model.Deck;
 import br.com.harpiastudios.cardgame.model.Enemy;
 import br.com.harpiastudios.cardgame.model.Player;
+import br.com.harpiastudios.cardgame.model.User;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -28,12 +28,12 @@ public class BattlefieldView extends javax.swing.JDialog {
     /**
      * Creates new form Battlefield
      */
-    public BattlefieldView(java.awt.Frame parent, boolean modal) {
+    public BattlefieldView(java.awt.Frame parent, boolean modal, Deck[] decks, String difficulty, User user) {
         super(parent, modal);
         initComponents();
         LoadFields();
         Deck pDeck = new Deck(2, "Teste", new ArrayList());
-        battlefield = new Battlefield(new Player("John Doe", pDeck), new Enemy("Darthvader", "Sei lá", new Deck(1, "Teste", new ArrayList()), DifficultyEnum.EASY), this);
+        battlefield = new Battlefield(new Player(user.getPlayerName(), decks[0]), new Enemy("Darthvader", "Sei lá", decks[1], Battlefield.getDifficultyByString(difficulty)), this);
         UpdateName();
         Update();
     }
@@ -673,10 +673,6 @@ public class BattlefieldView extends javax.swing.JDialog {
     private javax.swing.JPanel pnEnemy;
     private javax.swing.JTextArea taLog;
     // End of variables declaration//GEN-END:variables
-
-    public static void main(String args[]) {
-        new BattlefieldView(null, false).setVisible(true);
-    }
 
     public void Update() {
         this.setTitle(battlefield.getBattlefieldTitle());

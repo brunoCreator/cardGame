@@ -5,6 +5,7 @@
  */
 package br.com.harpiastudios.cardgame.model;
 
+import br.com.harpiastudios.cardgame.enumerator.DifficultyEnum;
 import br.com.harpiastudios.cardgame.enumerator.TargetEnum;
 import br.com.harpiastudios.cardgame.enumerator.TurnEnum;
 import br.com.harpiastudios.cardgame.view.BattlefieldView;
@@ -29,6 +30,7 @@ public class Battlefield {
         fields = view.getFields();
         int index = 0;
         for(Card card : player.getHand()) {
+            System.out.println(card.getNome());
             fields.get(index).setCarta(card);
             fields.get(index).Update();
             index++;
@@ -129,6 +131,17 @@ public class Battlefield {
         return result;
     }
 
+    public static DifficultyEnum getDifficultyByString(String df) {
+        switch(df.toLowerCase()) {
+            case "normal":
+                return DifficultyEnum.MEDIUM;
+            case "dificil":
+                return DifficultyEnum.HARD;
+            default:
+                return DifficultyEnum.EASY;
+        }
+    }
+    
     public int getTurnCount() {
         return turnCount;
     }
