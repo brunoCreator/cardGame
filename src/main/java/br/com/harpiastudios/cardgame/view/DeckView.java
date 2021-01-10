@@ -261,18 +261,17 @@ public class DeckView extends javax.swing.JPanel {
             (String) ((PRODUTO) est.get(id)).getDescricao(),
             (String) ((PRODUTO) est.get(id)).getValidade().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
             Float.toString(((PRODUTO) est.get(id)).getPreco())});
- 
-    */
+        */
+    
     }//GEN-LAST:event_jTable1MouseClicked
 
     public void update() {
-        selec.setRowCount(0);
-        /*for (Card s : ) {
-            selec.insertRow(selec.getRowCount(), new Object[]{s.getId(),
-                (String) s.getCliente().getNome(),
-                (String) s.getAnimal().getNome(),
-                (String) s.getServico().getNome()});
-        }*/
+        modelo.setRowCount(0);
+        for (Card s : storage.getCards()) {
+            modelo.insertRow(modelo.getRowCount(), new Object[]{s.getId(),
+                (String) s.getNome(),
+                (String) s.getDescricao()});
+        }
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
