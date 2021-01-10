@@ -1,16 +1,27 @@
 package br.com.harpiastudios.cardgame.view;
 
+import br.com.harpiastudios.cardgame.model.Card;
+import br.com.harpiastudios.cardgame.model.Deck;
+import br.com.harpiastudios.cardgame.model.Storage;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author rotch
  */
 public class DeckView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form deck
-     */
-    public DeckView() {
+    DefaultTableModel modelo;
+    DefaultTableModel selec;
+    ArrayList<Deck> decks;
+   Storage storage;
+    public DeckView(Storage storage) {
         initComponents();
+        this.storage = storage;
+        decks = storage.getDecks();
+        modelo = (DefaultTableModel) jTable1.getModel();
+        selec = (DefaultTableModel) jTable2.getModel();
     }
 
     /**
@@ -237,19 +248,33 @@ public class DeckView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    int row = 0, contador = 0;
+    boolean select = false;
+    
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        /*row = jTable1.rowAtPoint(evt.getPoint());
+        row = jTable1.rowAtPoint(evt.getPoint());
         int id = Integer.parseInt((String) modelo.getValueAt(row, 0));
+        /*
         selected.insertRow(selected.getRowCount(), new Object[]{Integer.toString(est.get(id).getId()),
             "" + ((PRODUTO) est.get(id)).getModelo(),
             (String) ((PRODUTO) est.get(id)).getMarca(),
             (String) ((PRODUTO) est.get(id)).getDescricao(),
             (String) ((PRODUTO) est.get(id)).getValidade().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
             Float.toString(((PRODUTO) est.get(id)).getPreco())});
-    total += est.get(id).getPreco();
-    jLabel9.setText("Valor: R$ " + total);*/
+ 
+    */
     }//GEN-LAST:event_jTable1MouseClicked
 
+    public void update() {
+        selec.setRowCount(0);
+        /*for (Card s : ) {
+            selec.insertRow(selec.getRowCount(), new Object[]{s.getId(),
+                (String) s.getCliente().getNome(),
+                (String) s.getAnimal().getNome(),
+                (String) s.getServico().getNome()});
+        }*/
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         /*if (select) {
             con.del((int) mContas.getValueAt(row, 0));

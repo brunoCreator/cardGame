@@ -9,6 +9,7 @@ package br.com.harpiastudios.cardgame.view;
 
 import br.com.harpiastudios.cardgame.model.Card;
 import br.com.harpiastudios.cardgame.model.Effect;
+import br.com.harpiastudios.cardgame.model.Storage;
 import java.util.ArrayList;
 
 /**
@@ -17,13 +18,15 @@ import java.util.ArrayList;
  */
 public class CardView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form card
-     */
-    public CardView() {
+    Storage storage;
+    ArrayList<Card> cards;
+    
+    public CardView(Storage storage) {
         initComponents();
+        this.storage = storage;
+        this.cards = storage.getCards();
     }
-    ArrayList<Card> cards = new  ArrayList<>();
+    
     int selec = 0;
     
     /**
@@ -465,18 +468,19 @@ public class CardView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(selec < cards.size()+1){
+        if(selec < cards.size()-1){
             selec++;
             preencher(cards.get(selec));
         } 
-        else if(selec == cards.size()){
-            selec = cards.size();
+        else if(selec == cards.size()-1){
+            selec = cards.size()-1;
             preencher(cards.get(selec));
         }
         else{
             selec = -1;
             limpar();
         }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -512,7 +516,7 @@ public class CardView extends javax.swing.JPanel {
     void preencher(Card c){
         jTextField1.setText(c.getNome());
         jTextField2.setText(c.getDescricao());
-        jTextField2.setText(Integer.toString(c.getCusto()));
+        jTextField3.setText(Integer.toString(c.getCusto()));
         jTextField6.setText(c.getEfeito()[0].getVida());
         jTextField7.setText(c.getEfeito()[0].getMana());
         jTextField8.setText(c.getEfeito()[0].getDefesa());

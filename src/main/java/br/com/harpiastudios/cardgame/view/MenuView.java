@@ -6,6 +6,7 @@
 package br.com.harpiastudios.cardgame.view;
 
 
+import br.com.harpiastudios.cardgame.model.Storage;
 import java.awt.CardLayout;
 
 /**
@@ -18,14 +19,18 @@ public class MenuView extends javax.swing.JFrame {
     DeckView deck;
     JogarView jogar;
     
+    Storage storage;
+    
     CardLayout cardLayout;
     public MenuView() {
         initComponents();
         
+        storage = new Storage();
+        
         cardLayout = (CardLayout)(cards.getLayout());
         
-        card = new CardView();
-        deck = new DeckView();
+        card = new CardView(storage);
+        deck = new DeckView(storage);
         jogar = new JogarView();
         
         //fild = new 
@@ -159,6 +164,7 @@ public class MenuView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        deck.update();
         cardLayout.show(cards, "deck");
     }//GEN-LAST:event_jButton2ActionPerformed
 
