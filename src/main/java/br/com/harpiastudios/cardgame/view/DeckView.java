@@ -42,7 +42,6 @@ public class DeckView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jToggleButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JFormattedTextField();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -51,6 +50,7 @@ public class DeckView extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,8 +103,6 @@ public class DeckView extends javax.swing.JPanel {
                 jToggleButton4ActionPerformed(evt);
             }
         });
-
-        jTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -188,8 +186,8 @@ public class DeckView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -283,7 +281,7 @@ public class DeckView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        if (row > 0 && cards.size() > 0) {
+        if (row > 0 && decks.size() > 0) {
             decks.set(row, new Deck(row,(String) jTextField1.getText(),getItens()));
         } else {
             decks.add(new Deck(decks.size(),(String) jTextField1.getText(),getItens()));
@@ -328,10 +326,14 @@ public class DeckView extends javax.swing.JPanel {
 
     void preencher(){        
         Deck ag = decks.get(row);
+        System.out.println(row);
+        System.out.println(ag.getNome());
+        jTextField1.setText((String)ag.getNome());
+        
         selec.setRowCount(0);
         for (int q = 0; q < cards.size(); q++) {
             Card s = ag.getCards().get(q);
-            modelo.insertRow(modelo.getRowCount(), new Object[]{q,
+            selec.insertRow(selec.getRowCount(), new Object[]{q,
                 (String) s.getNome(),
                 (String) s.getDescricao()});
         }
@@ -342,7 +344,7 @@ public class DeckView extends javax.swing.JPanel {
     ArrayList<Card> getItens() {
         ArrayList<Card> newProff = new ArrayList();
         for (int i = 0; i < selec.getRowCount(); i++) {
-            newProff.add(cards.get(Integer.parseInt((String)selec.getValueAt(i, 0))));
+            newProff.add(cards.get((int)selec.getValueAt(i, 0)));
         }
         return newProff;
     }
@@ -381,7 +383,7 @@ public class DeckView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JFormattedTextField jTextField1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jToggleButton4;
     // End of variables declaration//GEN-END:variables
 }
