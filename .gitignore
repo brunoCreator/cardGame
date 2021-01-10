@@ -1,3 +1,4 @@
 /target/
 *.lst
 *.lst
+*.class
