@@ -18,7 +18,7 @@ public class Deck {
     private int id;
     private String nome;
     private Stack<Card> cards = new Stack();
-
+    
     public Deck(int id, String nome, ArrayList<Card> cards) {
         this.id = id;
         this.nome = nome;
@@ -54,7 +54,11 @@ public class Deck {
     }
 
     public Card get() {
-        return cards.pop();
+        try {
+            return cards.pop();
+        }catch(Exception e) {
+            return null;
+        }
     }
 
     public ArrayList<Card> getListForHand() {

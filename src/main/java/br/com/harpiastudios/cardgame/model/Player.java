@@ -88,4 +88,8 @@ public class Player {
     public void setHand(ArrayList<Card> hand) {
         this.hand = hand;
     }
+    
+    public int getCardsCount() {
+        return hand.size() + deck.getCards().size();
+    }
 }

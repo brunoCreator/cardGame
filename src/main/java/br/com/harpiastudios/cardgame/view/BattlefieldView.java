@@ -32,8 +32,10 @@ public class BattlefieldView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         LoadFields();
-        battlefield = new Battlefield(new Player("John Doe", new Deck(2, "Teste", new ArrayList())), new Enemy("Darthvader", "Sei lá", new Deck(1, "Teste", new ArrayList()), DifficultyEnum.EASY), this);
+        Deck pDeck = new Deck(2, "Teste", new ArrayList());
+        battlefield = new Battlefield(new Player("John Doe", pDeck), new Enemy("Darthvader", "Sei lá", new Deck(1, "Teste", new ArrayList()), DifficultyEnum.EASY), this);
         UpdateName();
+        Update();
     }
 
     /**
@@ -46,11 +48,11 @@ public class BattlefieldView extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblPlayerStats = new javax.swing.JLabel();
         lblPlayerName = new javax.swing.JLabel();
         lblDesist = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblEnemyManaAndCards = new javax.swing.JLabel();
         lblEnemyName = new javax.swing.JLabel();
         playerHand = new javax.swing.JPanel();
         pnCardF5 = new javax.swing.JPanel();
@@ -76,9 +78,9 @@ public class BattlefieldView extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         taLog = new javax.swing.JTextArea();
         jPanel19 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
+        lblEnemyLife = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        lblEnemyDef = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modo: Fácil | Name vs Name | Turno: 0");
@@ -86,10 +88,10 @@ public class BattlefieldView extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(22, 160, 133));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setText("Vida: 10 | Defesa: 0 | Mana: 1 | Cartas: 10");
+        lblPlayerStats.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblPlayerStats.setForeground(new java.awt.Color(236, 240, 241));
+        lblPlayerStats.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblPlayerStats.setText("Vida: 10 | Defesa: 0 | Mana: 1 | Cartas: 10");
 
         lblPlayerName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPlayerName.setForeground(new java.awt.Color(236, 240, 241));
@@ -111,7 +113,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPlayerStats, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblDesist, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -126,7 +128,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                    .addComponent(lblPlayerStats, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
                     .addComponent(lblDesist))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,10 +140,10 @@ public class BattlefieldView extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(44, 62, 80));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(236, 240, 241));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel3.setText("Mana: 1 | Cartas: 10");
+        lblEnemyManaAndCards.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblEnemyManaAndCards.setForeground(new java.awt.Color(236, 240, 241));
+        lblEnemyManaAndCards.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblEnemyManaAndCards.setText("Mana: 1 | Cartas: 10");
 
         lblEnemyName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblEnemyName.setForeground(new java.awt.Color(236, 240, 241));
@@ -153,7 +155,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblEnemyManaAndCards, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -165,7 +167,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                .addComponent(lblEnemyManaAndCards, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -489,18 +491,18 @@ public class BattlefieldView extends javax.swing.JDialog {
 
         jPanel19.setBackground(new java.awt.Color(231, 76, 60));
 
-        jLabel18.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Vida: 0");
+        lblEnemyLife.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblEnemyLife.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnemyLife.setText("Vida: 0");
 
         jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Enemy");
 
-        jLabel20.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel20.setText("Defesa: 0");
+        lblEnemyDef.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblEnemyDef.setForeground(new java.awt.Color(255, 255, 255));
+        lblEnemyDef.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblEnemyDef.setText("Defesa: 0");
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -511,9 +513,9 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel19Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblEnemyLife, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblEnemyDef, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel19Layout.setVerticalGroup(
@@ -523,8 +525,8 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblEnemyLife, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEnemyDef, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -613,11 +615,7 @@ public class BattlefieldView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSkipTurn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
@@ -635,8 +633,12 @@ public class BattlefieldView extends javax.swing.JDialog {
     private javax.swing.JLabel lblCardNameF5;
     private javax.swing.JLabel lblCardNameF6;
     private javax.swing.JLabel lblDesist;
+    private javax.swing.JLabel lblEnemyDef;
+    private javax.swing.JLabel lblEnemyLife;
+    private javax.swing.JLabel lblEnemyManaAndCards;
     private javax.swing.JLabel lblEnemyName;
     private javax.swing.JLabel lblPlayerName;
+    private javax.swing.JLabel lblPlayerStats;
     private javax.swing.JLabel lblTurn;
     private javax.swing.JPanel playerHand;
     private javax.swing.JPanel pnCardF1;
@@ -656,6 +658,15 @@ public class BattlefieldView extends javax.swing.JDialog {
         this.setTitle(battlefield.getBattlefieldTitle());
         lblTurn.setText(battlefield.getTurn() == TurnEnum.PLAYER ? "SEU TURNO!" : "TURNO INIMIGO!");
         btnSkipTurn.setEnabled(battlefield.getTurn() != TurnEnum.ENEMY);
+        lblEnemyManaAndCards.setText("Mana: " + String.valueOf(battlefield.getEnemy().getMana()) + " | Cartas: " + String.valueOf(battlefield.getEnemy().getCardsCount()));
+        lblEnemyLife.setText(String.valueOf(battlefield.getEnemy().getVida()));
+        lblEnemyDef.setText(String.valueOf(battlefield.getEnemy().getDefesa()));
+        lblPlayerStats.setText("Vida: %life | Defesa: %def | Mana: %mana | Cartas: %cards"
+            .replace("%life", String.valueOf(battlefield.getPlayer().getVida()))
+            .replace("%def", String.valueOf(battlefield.getPlayer().getDefesa()))
+            .replace("%mana", String.valueOf(battlefield.getPlayer().getMana()))
+            .replace("%cards", String.valueOf(battlefield.getPlayer().getCardsCount()))
+        );
     }
 
     public void UpdateName() {
@@ -674,7 +685,6 @@ public class BattlefieldView extends javax.swing.JDialog {
     }
 
     public void ClearFields() {
-
         fields.forEach(f -> {
             if (f.isSelected()) {
                 f.setSelected(false);

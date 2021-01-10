@@ -37,5 +37,16 @@ public class Enemy extends Player {
         this.historia = historia;
     }
     
-    
+    public void discard(int count) {
+        for(int i = 0; i < count; i++) {
+            int pos = hand.size() - 1;
+            if(pos > -1 && pos < hand.size()) {
+                hand.remove(pos);
+                Card card = deck.get();
+                if(card != null) {
+                    hand.add(card);
+                }
+            }
+        }
+    }
 }

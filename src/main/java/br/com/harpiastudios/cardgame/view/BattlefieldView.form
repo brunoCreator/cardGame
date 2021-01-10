@@ -91,7 +91,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="468" max="-2" attributes="0"/>
+                  <Component id="lblPlayerStats" min="-2" pref="468" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblDesist" min="-2" pref="114" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -110,7 +110,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" pref="17" max="32767" attributes="0"/>
+                      <Component id="lblPlayerStats" alignment="3" pref="17" max="32767" attributes="0"/>
                       <Component id="lblDesist" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -126,7 +126,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblPlayerStats">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -178,7 +178,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" pref="600" max="-2" attributes="0"/>
+                  <Component id="lblEnemyManaAndCards" min="-2" pref="600" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -194,7 +194,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel3" pref="17" max="32767" attributes="0"/>
+                  <Component id="lblEnemyManaAndCards" pref="17" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -208,7 +208,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="lblEnemyManaAndCards">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -746,9 +746,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel19" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jLabel18" min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="lblEnemyLife" min="-2" pref="76" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel20" min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="lblEnemyDef" min="-2" pref="76" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -762,8 +762,8 @@
                   <Component id="jLabel19" min="-2" pref="23" max="-2" attributes="0"/>
                   <EmptySpace pref="182" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel18" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jLabel20" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="lblEnemyLife" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="lblEnemyDef" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -771,7 +771,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel18">
+        <Component class="javax.swing.JLabel" name="lblEnemyLife">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="14" style="1"/>
@@ -793,7 +793,7 @@
             <Property name="text" type="java.lang.String" value="Enemy"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel20">
+        <Component class="javax.swing.JLabel" name="lblEnemyDef">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="14" style="1"/>
