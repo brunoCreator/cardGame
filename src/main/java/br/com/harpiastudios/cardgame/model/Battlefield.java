@@ -5,8 +5,9 @@
  */
 package br.com.harpiastudios.cardgame.model;
 
-import br.com.harpiastudios.cardgame.enumerator.DifficultyEnum;
 import br.com.harpiastudios.cardgame.enumerator.TargetEnum;
+import br.com.harpiastudios.cardgame.enumerator.TurnEnum;
+import br.com.harpiastudios.cardgame.view.BattlefieldView;
 import java.util.ArrayList;
 
 /**
@@ -14,18 +15,31 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class Battlefield {
-    private int turn = 0;
-    private Player player;
-    private Enemy enemy;
+    private final BattlefieldView view;
+    private TurnEnum turn = TurnEnum.PLAYER;
+    private int turnCount = 0;
+    private final Player player;
+    private final Enemy enemy;
     private ArrayList<CardField> fields = new ArrayList();
 
-    public Battlefield(Player player, Enemy enemy, DifficultyEnum difficulty) {
+    public Battlefield(Player player, Enemy enemy, BattlefieldView view) {
         this.player = player;
         this.enemy = enemy;
+        this.view = view;
     }
 
+    public TurnEnum getTurn() {
+        return turn;
+    }
+    
     public void SkipTurn() {
-        turn++;
+        if(turn == TurnEnum.PLAYER ) {
+            turn = TurnEnum.ENEMY;
+        }else{
+            turn = TurnEnum.PLAYER;
+        }
+        turnCount++;
+        view.Update();
     }
     
     public int ApplyEffect(String input, int total, TargetEnum target) {
@@ -90,18 +104,26 @@ public class Battlefield {
 
     public String getBattlefieldTitle() {
         String result = "Modo: %mode | %player vs %enemy | Turno: %turn"
-        .replace("%modo", enemy.getDificuldade().toString())
+        .replace("%mode", enemy.getDificuldade().toString())
         .replace("%player", player.getNome())
         .replace("%enemy", enemy.getNome())
-        .replace("%turn", String.valueOf(turn));
+        .replace("%turn", String.valueOf(turnCount));
         return result;
     }
-    
-    public int getTurn() {
-        return turn;
+
+    public int getTurnCount() {
+        return turnCount;
     }
 
-    public void setTurn(int turn) {
-        this.turn = turn;
+    public void setTurnCount(int turnCount) {
+        this.turnCount = turnCount;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
     }
 }
