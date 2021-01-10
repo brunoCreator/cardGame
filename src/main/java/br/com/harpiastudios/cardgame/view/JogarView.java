@@ -32,29 +32,26 @@ public class JogarView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbPlayerDeck = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbDifficulty = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        cbEnemyDeck = new javax.swing.JComboBox<>();
 
-        jLabel3.setText("deck");
+        jLabel3.setText("Seu deck:");
 
-        jButton6.setText("batalhar");
+        jButton6.setText("BATALHAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("dificuldade");
+        jLabel4.setText("Dificuldade");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Normal", "Dificil" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
+        cbDifficulty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Normal", "Dificil" }));
 
         jButton7.setText("voltar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +59,8 @@ public class JogarView extends javax.swing.JPanel {
                 jButton7ActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Deck inimigo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,39 +80,49 @@ public class JogarView extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
                                 .addGap(39, 39, 39)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(459, Short.MAX_VALUE))
+                                    .addComponent(cbEnemyDeck, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbPlayerDeck, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160)
+                .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbPlayerDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cbEnemyDeck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbDifficulty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 341, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addGap(30, 30, 30))
         );
 
-        jComboBox1.getAccessibleContext().setAccessibleName("");
-        jComboBox1.getAccessibleContext().setAccessibleDescription("");
+        cbPlayerDeck.getAccessibleContext().setAccessibleName("");
+        cbPlayerDeck.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
 
-    public void update(){
-        jComboBox1.removeAllItems();
+    public void Update(){
+        cbPlayerDeck.removeAllItems();
         for (Deck s : storage.getDecks()) {
-            jComboBox1.addItem(new Box((int) s.getId(), s.getNome()));
+            cbPlayerDeck.addItem(new Box((int) s.getId(), s.getNome()));
+        }
+        cbEnemyDeck.removeAllItems();
+        for (Deck s : storage.getDecks()) {
+            cbEnemyDeck.addItem(new Box((int) s.getId(), s.getNome()));
         }
     }
     
@@ -122,21 +131,28 @@ public class JogarView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Box cli = (Box) jComboBox1.getSelectedItem();
-        System.out.println(cli.getKey());
+        Box playerDeck = (Box) cbPlayerDeck.getSelectedItem();
+        Box enemyDeck = (Box) cbEnemyDeck.getSelectedItem();
+        
+        String df = cbDifficulty.getSelectedItem().toString();
+        Deck[] ds = {
+            storage.getDecks().get(playerDeck.getKey()),
+            storage.getDecks().get(enemyDeck.getKey())
+        };
+        
+        BattlefieldView view = new BattlefieldView(null, true, ds, df, storage.getUsuario());
+        System.out.println(playerDeck.getKey());
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbDifficulty;
+    private javax.swing.JComboBox<Box> cbEnemyDeck;
+    private javax.swing.JComboBox<Box> cbPlayerDeck;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<Box> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

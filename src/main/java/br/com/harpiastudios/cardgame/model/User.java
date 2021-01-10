@@ -16,6 +16,20 @@ public class User {
     private int victories = 0;
     private int defeats = 0;
 
+    public User(String playerName, String username, String password) {
+        this.playerName = playerName;
+        this.username = username;
+        this.password = password;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+    
     public String getUsername() {
         return username;
     }

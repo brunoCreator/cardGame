@@ -12,10 +12,12 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class Storage {
+    private User usuario;
     ArrayList<Card> cards = new  ArrayList<>();
     ArrayList<Deck> decks = new  ArrayList<>();
 
     public Storage() {
+        usuario = new User("John", "admin", "admin");
     }
 
     public ArrayList<Card> getCards() {
@@ -33,5 +35,12 @@ public class Storage {
     public void setDecks(ArrayList<Deck> decks) {
         this.decks = decks;
     }
-    
+
+    public User getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
 }
