@@ -77,7 +77,7 @@ public class BattlefieldView extends javax.swing.JDialog {
         btnSkipTurn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         taLog = new javax.swing.JTextArea();
-        jPanel19 = new javax.swing.JPanel();
+        pnEnemy = new javax.swing.JPanel();
         lblEnemyLife = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         lblEnemyDef = new javax.swing.JLabel();
@@ -489,42 +489,56 @@ public class BattlefieldView extends javax.swing.JDialog {
         taLog.setText("Log:");
         jScrollPane1.setViewportView(taLog);
 
-        jPanel19.setBackground(new java.awt.Color(231, 76, 60));
+        pnEnemy.setBackground(new java.awt.Color(231, 76, 60));
+        pnEnemy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                pnEnemyMouseReleased(evt);
+            }
+        });
 
         lblEnemyLife.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         lblEnemyLife.setForeground(new java.awt.Color(255, 255, 255));
         lblEnemyLife.setText("Vida: 0");
+        lblEnemyLife.setFocusable(false);
+        lblEnemyLife.setRequestFocusEnabled(false);
+        lblEnemyLife.setVerifyInputWhenFocusTarget(false);
 
         jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Enemy");
+        jLabel19.setFocusable(false);
+        jLabel19.setRequestFocusEnabled(false);
+        jLabel19.setVerifyInputWhenFocusTarget(false);
 
         lblEnemyDef.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         lblEnemyDef.setForeground(new java.awt.Color(255, 255, 255));
         lblEnemyDef.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblEnemyDef.setText("Defesa: 0");
+        lblEnemyDef.setFocusable(false);
+        lblEnemyDef.setRequestFocusEnabled(false);
+        lblEnemyDef.setVerifyInputWhenFocusTarget(false);
 
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnEnemyLayout = new javax.swing.GroupLayout(pnEnemy);
+        pnEnemy.setLayout(pnEnemyLayout);
+        pnEnemyLayout.setHorizontalGroup(
+            pnEnemyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnEnemyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnEnemyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel19Layout.createSequentialGroup()
+                    .addGroup(pnEnemyLayout.createSequentialGroup()
                         .addComponent(lblEnemyLife, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblEnemyDef, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+        pnEnemyLayout.setVerticalGroup(
+            pnEnemyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnEnemyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnEnemyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEnemyLife, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEnemyDef, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -545,7 +559,7 @@ public class BattlefieldView extends javax.swing.JDialog {
                             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(423, 423, 423)
-                                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pnEnemy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(240, 240, 240)
                                 .addComponent(btnSkipTurn, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
                             .addComponent(lblTurn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -564,7 +578,7 @@ public class BattlefieldView extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnSkipTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(pnEnemy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -613,11 +627,20 @@ public class BattlefieldView extends javax.swing.JDialog {
         SelectField(5);
     }//GEN-LAST:event_pnCardF6MouseReleased
 
+    private void pnEnemyMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnEnemyMouseReleased
+        if(battlefield.getTurn() == TurnEnum.PLAYER) {
+            if(battlefield.hasFieldSelected()) {
+                System.out.println("Player attack.");
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecione uma carta antes de realizar um ataque.");
+            }
+        }
+    }//GEN-LAST:event_pnEnemyMouseReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSkipTurn;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCardDescF1;
@@ -647,6 +670,7 @@ public class BattlefieldView extends javax.swing.JDialog {
     private javax.swing.JPanel pnCardF4;
     private javax.swing.JPanel pnCardF5;
     private javax.swing.JPanel pnCardF6;
+    private javax.swing.JPanel pnEnemy;
     private javax.swing.JTextArea taLog;
     // End of variables declaration//GEN-END:variables
 
@@ -706,6 +730,10 @@ public class BattlefieldView extends javax.swing.JDialog {
 
     public JTextArea getTaLog() {
         return taLog;
+    }
+
+    public ArrayList<CardField> getFields() {
+        return fields;
     }
 
 }

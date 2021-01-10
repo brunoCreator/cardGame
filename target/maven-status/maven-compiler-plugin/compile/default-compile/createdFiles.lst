@@ -3,7 +3,6 @@ br\com\harpiastudios\cardgame\view\BattlefieldView.class
 br\com\harpiastudios\cardgame\view\DeckView$5.class
 br\com\harpiastudios\cardgame\view\LoginView.class
 br\com\harpiastudios\cardgame\model\Card.class
-br\com\harpiastudios\cardgame\view\JogarView$9.class
 br\com\harpiastudios\cardgame\view\JogarView$2.class
 br\com\harpiastudios\cardgame\model\Effect.class
 br\com\harpiastudios\cardgame\view\CardView$5.class
@@ -12,7 +11,6 @@ br\com\harpiastudios\cardgame\view\LoginView$4.class
 br\com\harpiastudios\cardgame\view\CardView$1.class
 br\com\harpiastudios\cardgame\view\DeckView.class
 br\com\harpiastudios\cardgame\view\DeckView$1.class
-br\com\harpiastudios\cardgame\view\JogarView$6.class
 br\com\harpiastudios\cardgame\model\Player.class
 br\com\harpiastudios\cardgame\view\BattlefieldView$2.class
 br\com\harpiastudios\cardgame\view\BattlefieldView$5.class
@@ -27,7 +25,7 @@ br\com\harpiastudios\cardgame\enumerator\TurnEnum.class
 br\com\harpiastudios\cardgame\view\BattlefieldView$3.class
 br\com\harpiastudios\cardgame\model\Storage.class
 br\com\harpiastudios\cardgame\view\DeckView$2.class
-br\com\harpiastudios\cardgame\view\JogarView$7.class
+br\com\harpiastudios\cardgame\view\BattlefieldView$9.class
 br\com\harpiastudios\cardgame\view\MenuView$5.class
 br\com\harpiastudios\cardgame\model\User.class
 br\com\harpiastudios\cardgame\view\MenuView.class
@@ -43,7 +41,6 @@ br\com\harpiastudios\cardgame\view\CardView$7.class
 br\com\harpiastudios\cardgame\view\MenuView$3.class
 br\com\harpiastudios\cardgame\enumerator\TargetEnum.class
 br\com\harpiastudios\cardgame\view\DeckView$6.class
-br\com\harpiastudios\cardgame\view\JogarView$8.class
 br\com\harpiastudios\cardgame\view\LoginView$2.class
 br\com\harpiastudios\cardgame\model\Battlefield.class
 br\com\harpiastudios\cardgame\model\Deck.class

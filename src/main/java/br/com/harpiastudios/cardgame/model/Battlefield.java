@@ -26,6 +26,7 @@ public class Battlefield {
         this.player = player;
         this.enemy = enemy;
         this.view = view;
+        fields = view.getFields();
         int index = 0;
         for(Card card : player.getHand()) {
             fields.get(index).setCarta(card);
@@ -49,6 +50,14 @@ public class Battlefield {
         }
         turnCount++;
         view.Update();
+    }
+    
+    public boolean hasFieldSelected() {
+        boolean result = false;
+        for(CardField f : fields) {
+            if(f.isSelected()) result = true;
+        }
+        return result;
     }
     
     public int ApplyEffect(String input, int total, TargetEnum target) {
