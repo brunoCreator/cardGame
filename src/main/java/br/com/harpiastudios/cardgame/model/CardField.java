@@ -5,8 +5,10 @@
  */
 package br.com.harpiastudios.cardgame.model;
 
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -16,7 +18,8 @@ public class CardField {
     private JLabel nome;
     private JLabel descricao;
     private JPanel content;
-    
+    private boolean selected = false;
+
     private Card carta;
 
     public CardField(JLabel nome, JLabel descricao, JPanel content) {
@@ -24,12 +27,12 @@ public class CardField {
         this.descricao = descricao;
         this.content = content;
     }
-    
+
     public void Update() {
         nome.setText(carta.getNome());
         descricao.setText(carta.getDescricao());
     }
-    
+
     public void setEnabled(boolean value) {
         content.setVisible(value);
     }
@@ -64,5 +67,18 @@ public class CardField {
 
     public void setCarta(Card carta) {
         this.carta = carta;
+    }
+
+    public void setSelected(boolean value) {
+        if (value) {
+            content.setBorder(new LineBorder(Color.decode("#d484f5"), 2));
+        }else{
+            content.setBorder(null);
+        }
+        selected = value;
+    }
+
+    public boolean isSelected() {
+        return selected;
     }
 }

@@ -6,6 +6,7 @@
 package br.com.harpiastudios.cardgame.model;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  *
@@ -14,9 +15,9 @@ import java.util.ArrayList;
 public class Deck {
     private int id;
     private String nome;
-    private ArrayList<Card> cards;
+    private Stack<Card> cards;
 
-    public Deck(int id, String nome, ArrayList<Card> cards) {
+    public Deck(int id, String nome, Stack<Card> cards) {
         this.id = id;
         this.nome = nome;
         this.cards = cards;
@@ -38,12 +39,11 @@ public class Deck {
         this.nome = nome;
     }
 
-    public ArrayList<Card> getCards() {
+    public Stack<Card> getCards() {
         return cards;
     }
 
-    public void setCards(ArrayList<Card> cards) {
+    public void setCards(Stack<Card> cards) {
         this.cards = cards;
     }
-    
 }

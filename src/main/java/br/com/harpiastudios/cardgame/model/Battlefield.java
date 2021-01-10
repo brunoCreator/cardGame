@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class Battlefield {
+    private int turn = 0;
     private Player player;
     private Enemy enemy;
     private ArrayList<CardField> fields = new ArrayList();
@@ -22,7 +23,7 @@ public class Battlefield {
         this.enemy = enemy;
     }
 
-    private int calculo(String input, int total, boolean alvo) {
+    private int applyEffect(String input, int total, boolean alvo) {
         String[] items;
 
         items = input.split("((?<=([\\+\\-\\*\\^\\@\\#v]))|(?=([\\+\\-\\*\\^\\@\\#v])))");
@@ -72,13 +73,21 @@ public class Battlefield {
             } else if (items[i].equals("#")) {//carta
                 if (i - 1 >= 0 && i + 1 <= items.length) {
                     if (alvo) {
-                        total += cartas;
+                        //total += cartas;
                     } else {
-                        total += ecartas;
+                        //total += ecartas;
                     }
                 }
             }
         }
         return total;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
     }
 }
