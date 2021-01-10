@@ -12,10 +12,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DeckView extends javax.swing.JPanel {
 
-    DefaultTableModel modelo;
-    DefaultTableModel selec;
-    ArrayList<Deck> decks;
-   Storage storage;
+    private DefaultTableModel modelo;
+    private DefaultTableModel selec;
+    private ArrayList<Deck> decks;
+    private Storage storage;
+
     public DeckView(Storage storage) {
         initComponents();
         this.storage = storage;
@@ -250,7 +251,7 @@ public class DeckView extends javax.swing.JPanel {
 
     int row = 0, contador = 0;
     boolean select = false;
-    
+
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         row = jTable1.rowAtPoint(evt.getPoint());
         int id = Integer.parseInt((String) modelo.getValueAt(row, 0));
@@ -262,7 +263,7 @@ public class DeckView extends javax.swing.JPanel {
             (String) ((PRODUTO) est.get(id)).getValidade().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
             Float.toString(((PRODUTO) est.get(id)).getPreco())});
  
-    */
+         */
     }//GEN-LAST:event_jTable1MouseClicked
 
     public void update() {
@@ -274,7 +275,7 @@ public class DeckView extends javax.swing.JPanel {
                 (String) s.getServico().getNome()});
         }*/
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         /*if (select) {
             con.del((int) mContas.getValueAt(row, 0));
