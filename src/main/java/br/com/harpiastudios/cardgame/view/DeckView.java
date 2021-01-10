@@ -262,7 +262,7 @@ public class DeckView extends javax.swing.JPanel {
                 (String) s.getDescricao()});
     }//GEN-LAST:event_jTable1MouseClicked
 
-    public void update() {
+    public void update(){
         modelo.setRowCount(0);
         for (int q = 0; q < cards.size(); q++) {
             Card s = cards.get(q);
