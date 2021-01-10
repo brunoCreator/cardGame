@@ -23,7 +23,6 @@ public class CardView extends javax.swing.JPanel {
     public CardView() {
         initComponents();
     }
-    
     ArrayList<Card> cards = new  ArrayList<>();
     int selec = 0;
     
@@ -88,6 +87,8 @@ public class CardView extends javax.swing.JPanel {
         setBackground(new java.awt.Color(69, 73, 84));
         setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1280, 720));
+
+        jTextField9.setText("0");
 
         jButton1.setBackground(new java.awt.Color(34, 35, 40));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -172,12 +173,16 @@ public class CardView extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("descricao");
 
+        jTextField6.setText("0");
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
             }
         });
 
+        jTextField7.setText("0");
+
+        jTextField8.setText("0");
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
@@ -194,7 +199,7 @@ public class CardView extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("custo de mana");
+        jLabel5.setText("custo");
 
         jButton7.setBackground(new java.awt.Color(34, 35, 40));
         jButton7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -223,17 +228,23 @@ public class CardView extends javax.swing.JPanel {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("cartas");
 
+        jTextField10.setText("0");
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField10ActionPerformed(evt);
             }
         });
 
+        jTextField11.setText("0");
+
+        jTextField12.setText("0");
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField12ActionPerformed(evt);
             }
         });
+
+        jTextField13.setText("0");
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -256,33 +267,15 @@ public class CardView extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(192, 192, 192)
                                 .addComponent(jLabel20)))
-                        .addGap(142, 142, 142))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(35, 35, 35))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(546, 546, 546))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(jLabel3)
-                                        .addGap(55, 55, 55))
+                                        .addGap(17, 17, 17))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -312,11 +305,17 @@ public class CardView extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel14)
                                                 .addGap(24, 24, 24)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField11)
                                             .addComponent(jTextField12)
-                                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(jTextField10)
+                                            .addComponent(jTextField13)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -324,11 +323,23 @@ public class CardView extends javax.swing.JPanel {
                                     .addComponent(jLabel1))
                                 .addGap(45, 45, 45)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField2)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jTextField2))))))
-                .addGap(404, 404, 404))
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(313, 313, 313)))))
+                        .addGap(404, 404, 404))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,25 +416,40 @@ public class CardView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // add
-        cards.add(new Card(cards.size(),(String)jTextField1.getText(),
+        if(selec > 0 && cards.size() > 0){
+            cards.set(selec, new Card(cards.size(),(String)jTextField1.getText(),
             (String)jTextField2.getText(),
              Integer.parseInt(jTextField3.getText()),
             new Effect[]{new Effect(true,
                 (String)jTextField6.getText(),
                 (String)jTextField7.getText(),
                 (String)jTextField8.getText(),
-                (String)jTextField6.getText()),
+                (String)jTextField9.getText()),
                 new Effect(false,
                 (String)jTextField10.getText(),
                 (String)jTextField11.getText(),
                 (String)jTextField12.getText(),
                 (String)jTextField13.getText())}));
-    limpar();
+        }else{
+            cards.add(new Card(cards.size(),(String)jTextField1.getText(),
+            (String)jTextField2.getText(),
+             Integer.parseInt(jTextField3.getText()),
+            new Effect[]{new Effect(true,
+                (String)jTextField6.getText(),
+                (String)jTextField7.getText(),
+                (String)jTextField8.getText(),
+                (String)jTextField9.getText()),
+                new Effect(false,
+                (String)jTextField10.getText(),
+                (String)jTextField11.getText(),
+                (String)jTextField12.getText(),
+                (String)jTextField13.getText())}));
+        }
+            limpar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(cards.size()-1>0 && selec > 0){
+        if(cards.size()-1 > 0 && selec > 0){
             selec--;
             preencher(cards.get(selec));
         }
@@ -431,26 +457,30 @@ public class CardView extends javax.swing.JPanel {
             selec = 0;
             preencher(cards.get(selec));
         }
-        else
-        limpar();
+        else{
+            selec = -1;
+            limpar();
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(selec < cards.size()-1){
-            selec--;
+        if(selec < cards.size()+1){
+            selec++;
+            preencher(cards.get(selec));
+        } 
+        else if(selec == cards.size()){
+            selec = cards.size();
             preencher(cards.get(selec));
         }
-        else if(selec == cards.size()-1){
-            selec = cards.size()-1;
-            preencher(cards.get(selec));
+        else{
+            selec = -1;
+            limpar();
         }
-        else
-        limpar();
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(selec > 0)
         cards.remove(selec);
         limpar();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -497,10 +527,14 @@ public class CardView extends javax.swing.JPanel {
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jTextField8.setText("");
-        jTextField9.setText("");
+        jTextField6.setText("0");
+        jTextField7.setText("0");
+        jTextField8.setText("0");
+        jTextField9.setText("0");
+        jTextField10.setText("0");
+        jTextField11.setText("0");
+        jTextField12.setText("0");
+        jTextField13.setText("0");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

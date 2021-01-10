@@ -3,6 +3,7 @@ br\com\harpiastudios\cardgame\view\BattlefieldView.class
 br\com\harpiastudios\cardgame\view\DeckView$5.class
 br\com\harpiastudios\cardgame\view\LoginView.class
 br\com\harpiastudios\cardgame\model\Card.class
+br\com\harpiastudios\cardgame\view\JogarView$9.class
 br\com\harpiastudios\cardgame\view\JogarView$2.class
 br\com\harpiastudios\cardgame\model\Effect.class
 br\com\harpiastudios\cardgame\view\CardView$5.class

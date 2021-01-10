@@ -18,8 +18,6 @@ public class MenuView extends javax.swing.JFrame {
     DeckView deck;
     JogarView jogar;
     
-    BattlefieldView fild;
-    
     CardLayout cardLayout;
     public MenuView() {
         initComponents();
