@@ -30,7 +30,7 @@ public class MenuView extends javax.swing.JFrame {
         
         card = new CardView(storage);
         deck = new DeckView(storage);
-        jogar = new JogarView();
+        jogar = new JogarView(storage);
         
         //fild = new 
                 
@@ -159,6 +159,7 @@ public class MenuView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jogar.update();
         cardLayout.show(cards, "jogar");
     }//GEN-LAST:event_jButton1ActionPerformed
 
