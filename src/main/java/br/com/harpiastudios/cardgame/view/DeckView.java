@@ -250,13 +250,13 @@ public class DeckView extends javax.swing.JPanel {
         int id = (int) modelo.getValueAt(jTable1.rowAtPoint(evt.getPoint()), 0);
         Card s = cards.get(id);
 
-        boolean has = false;
+        int has = 0;
         for (int i = 0; i < selec.getRowCount(); i++) {
             if ((int) selec.getValueAt(i, 0) == id) {
-                has = true;
+                has++;
             }
         }
-        if (!has)
+        if (has<3)
             selec.insertRow(selec.getRowCount(), new Object[]{id,
                 (String) s.getNome(),
                 (String) s.getDescricao()});
@@ -281,11 +281,12 @@ public class DeckView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+        if(!jTextField1.getText().equals("") && selec.getRowCount() > 0){
         if (row >= 0 && decks.size() > 0) {
             decks.set(row, new Deck(row,(String) jTextField1.getText(),getItens()));
         } else {
             decks.add(new Deck(decks.size(),(String) jTextField1.getText(),getItens()));
-        }
+        }}
         limpar();
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 

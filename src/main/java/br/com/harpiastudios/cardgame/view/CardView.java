@@ -417,6 +417,7 @@ public class CardView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(!jTextField1.getText().equals("") && !jTextField2.getText().equals("")&& !jTextField3.getText().equals("")&& !jTextField6.getText().equals("")&& !jTextField6.getText().equals("")&& !jTextField7.getText().equals("")&& !jTextField8.getText().equals("")&& !jTextField9.getText().equals("") && !jTextField10.getText().equals("")&& !jTextField11.getText().equals("")&& !jTextField12.getText().equals("")&& !jTextField13.getText().equals("")){
         if (selec > 0 && cards.size() > 0) {
             cards.set(selec, new Card(cards.size(), (String) jTextField1.getText(),
                     (String) jTextField2.getText(),
@@ -445,6 +446,7 @@ public class CardView extends javax.swing.JPanel {
                                 (String) jTextField11.getText(),
                                 (String) jTextField12.getText(),
                                 (String) jTextField13.getText())}));
+        }
         }
         limpar();
     }//GEN-LAST:event_jButton1ActionPerformed
