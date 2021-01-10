@@ -5,7 +5,6 @@
  */
 package br.com.harpiastudios.cardgame;
 
-import br.com.harpiastudios.cardgame.view.LoginView;
 import br.com.harpiastudios.cardgame.view.MenuView;
 
 /**
