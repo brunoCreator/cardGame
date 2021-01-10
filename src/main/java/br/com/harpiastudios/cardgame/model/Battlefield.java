@@ -30,6 +30,7 @@ public class Battlefield {
         fields = view.getFields();
         int index = 0;
         for(Card card : player.getHand()) {
+            System.out.println(card.getNome());
             fields.get(index).setCarta(card);
             fields.get(index).Update();
             index++;

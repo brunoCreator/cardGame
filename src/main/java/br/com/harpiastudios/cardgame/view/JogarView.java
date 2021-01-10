@@ -141,6 +141,7 @@ public class JogarView extends javax.swing.JPanel {
         };
         
         BattlefieldView view = new BattlefieldView(null, true, ds, df, storage.getUsuario());
+        view.setVisible(true);
         System.out.println(playerDeck.getKey());
     }//GEN-LAST:event_jButton6ActionPerformed
 

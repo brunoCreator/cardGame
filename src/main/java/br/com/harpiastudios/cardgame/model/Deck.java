@@ -63,7 +63,7 @@ public class Deck {
 
     public ArrayList<Card> getListForHand() {
         ArrayList<Card> hand = new ArrayList();
-        if (cards.size() > 6) {
+        if (cards.size() > 0) {
             for (int i = 0; i < 6; i++) {
                 hand.add(get());
             }
