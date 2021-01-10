@@ -14,10 +14,22 @@ public class Card {
     private String nome;
     private String descricao;
     private int custo;
-    private Effect efeito;
+    private Effect[] efeito;
+
+    public Card(int id, String nome, String descricao, int custo, Effect[] efeito) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.custo = custo;
+        this.efeito = efeito;
+    }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -44,21 +56,12 @@ public class Card {
         this.custo = custo;
     }
 
-    public Effect getEfeito() {
+    public Effect[] getEfeito() {
         return efeito;
     }
 
-    public void setEfeito(Effect efeito) {
+    public void setEfeito(Effect[] efeito) {
         this.efeito = efeito;
     }
-
-    public Card(int id, String nome, String descricao, int custo, Effect efeito) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.custo = custo;
-        this.efeito = efeito;
-    }
-
     
 }
