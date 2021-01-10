@@ -4,6 +4,7 @@ import br.com.harpiastudios.cardgame.model.Card;
 import br.com.harpiastudios.cardgame.model.Deck;
 import br.com.harpiastudios.cardgame.model.Storage;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,11 +16,13 @@ public class DeckView extends javax.swing.JPanel {
     DefaultTableModel modelo;
     DefaultTableModel selec;
     ArrayList<Deck> decks;
+    ArrayList<Card> cards;
    Storage storage;
     public DeckView(Storage storage) {
         initComponents();
         this.storage = storage;
         decks = storage.getDecks();
+        cards = storage.getCards();
         modelo = (DefaultTableModel) jTable1.getModel();
         selec = (DefaultTableModel) jTable2.getModel();
     }
@@ -170,16 +173,18 @@ public class DeckView extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(310, 310, 310)
+                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8)
@@ -190,180 +195,173 @@ public class DeckView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(152, 152, 152)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(233, 233, 233)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(283, 283, 283))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 31, Short.MAX_VALUE)
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)
-                                .addGap(211, 211, 211))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    int row = 0, contador = 0;
+    int row = -1, contador = 0;
     boolean select = false;
     
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        row = jTable1.rowAtPoint(evt.getPoint());
-        int id = Integer.parseInt((String) modelo.getValueAt(row, 0));
-        /*
-        selected.insertRow(selected.getRowCount(), new Object[]{Integer.toString(est.get(id).getId()),
-            "" + ((PRODUTO) est.get(id)).getModelo(),
-            (String) ((PRODUTO) est.get(id)).getMarca(),
-            (String) ((PRODUTO) est.get(id)).getDescricao(),
-            (String) ((PRODUTO) est.get(id)).getValidade().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-            Float.toString(((PRODUTO) est.get(id)).getPreco())});
-        */
-    
+        int id = (int) modelo.getValueAt(jTable1.rowAtPoint(evt.getPoint()), 0);
+        Card s = cards.get(id);
+
+        boolean has = false;
+        for (int i = 0; i < selec.getRowCount(); i++) {
+            if ((int) selec.getValueAt(i, 0) == id) {
+                has = true;
+            }
+        }
+        if (!has)
+            selec.insertRow(selec.getRowCount(), new Object[]{id,
+                (String) s.getNome(),
+                (String) s.getDescricao()});
     }//GEN-LAST:event_jTable1MouseClicked
 
     public void update() {
         modelo.setRowCount(0);
-        for (Card s : storage.getCards()) {
-            modelo.insertRow(modelo.getRowCount(), new Object[]{s.getId(),
+        for (int q = 0; q < cards.size(); q++) {
+            Card s = cards.get(q);
+            modelo.insertRow(modelo.getRowCount(), new Object[]{q,
                 (String) s.getNome(),
                 (String) s.getDescricao()});
         }
+
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /*if (select) {
-            con.del((int) mContas.getValueAt(row, 0));
-            mContas.removeRow(row);
-        }*/
+        if (row >= 0) {
+            cards.remove(row);
+        }
+        limpar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        /*try {
-            if (jComboBox1.getItemCount() != 0 && !jTextField1.getText().equals("")) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate data = LocalDate.parse(jTextField1.getText(), formatter);
-                if (select) {
-                    Box cli = (Box) jComboBox1.getSelectedItem();
-                    int id = Integer.parseInt((String) modelo.getValueAt(row, 0));
-                    con.add(id, new CONTA(id,
-                        cad.get(cli.getKey()),
-                        data,
-                        getItens(),
-                        total));
-                CONTA ag = con.get(id);
-
-                mContas.setValueAt((String) ag.getCliente().getNome(), row, 1);
-                mContas.setValueAt((String) ag.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), row, 2);
-                mContas.setValueAt(Float.toString(ag.getTotal()), row, 3);
-                limpar();
-            } else {
-
-                Box cli = (Box) jComboBox1.getSelectedItem();
-
-                con.add(contador, new CONTA(contador,
-                    cad.get(cli.getKey()),
-                    data,
-                    getItens(),
-                    total));
-
-            CONTA novo = con.get(contador);
-            mContas.insertRow(mContas.getRowCount(), new Object[]{contador,
-                (String) novo.getCliente().getNome(),
-                (String) novo.getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                Float.toString(novo.getTotal())});
-
-        contador++;
+        if (row > 0 && cards.size() > 0) {
+            decks.set(row, new Deck(row,(String) jTextField1.getText(),getItens()));
+        } else {
+            decks.add(new Deck(decks.size(),(String) jTextField1.getText(),getItens()));
+        }
         limpar();
-        }
-        }else{
-            JOptionPane.showMessageDialog(null, "Preencha os campos corretamente!");
-        }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar!");
-        }*/
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //limpar();
+        limpar();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        /*int rowProff = jTable2.rowAtPoint(evt.getPoint());
-        total -= est.get(Integer.parseInt((String) selected.getValueAt(rowProff, 0))).getPreco();
-        jLabel9.setText("Valor: R$ " + total);
-        selected.removeRow(rowProff);*/
+        int rowProff = jTable2.rowAtPoint(evt.getPoint());
+        selec.removeRow(rowProff);
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /*if(clientes.size()-1>0 && selec > 0){
-            selec--;
-            preencher(clientes.get(selec));
+        if (decks.size() - 1 > 0 && row > 0) {
+            row--;
+            preencher();
+        } else if (row == 0) {
+            row = 0;
+            preencher();
+        } else {
+            row = -1;
+            limpar();
         }
-        else if(selec == 0){
-            selec = 0;
-            preencher(clientes.get(selec));
-        }
-        else
-        limpar();*/
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        /*if(selec < clientes.size()-1){
-            selec--;
-            preencher(clientes.get(selec));
+        if (row < decks.size() - 1) {
+            row++;
+            preencher();
+        } else if (row == decks.size() - 1) {
+            row = decks.size() - 1;
+            preencher();
+        } else {
+            row = -1;
+            limpar();
         }
-        else if(selec == clientes.size()-1){
-            selec = clientes.size()-1;
-            preencher(clientes.get(selec));
-        }
-        else
-        limpar();*/
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    void preencher(){        
+        Deck ag = decks.get(row);
+        selec.setRowCount(0);
+        for (int q = 0; q < cards.size(); q++) {
+            Card s = ag.getCards().get(q);
+            modelo.insertRow(modelo.getRowCount(), new Object[]{q,
+                (String) s.getNome(),
+                (String) s.getDescricao()});
+        }
+        select = true;
+    }
+    
+    
+    ArrayList<Card> getItens() {
+        ArrayList<Card> newProff = new ArrayList();
+        for (int i = 0; i < selec.getRowCount(); i++) {
+            newProff.add(cards.get(Integer.parseInt((String)selec.getValueAt(i, 0))));
+        }
+        return newProff;
+    }
+    
+    void limpar() {
+        selec.setRowCount(0);
+        jTextField1.setText("");
+        select = false;
+        make();
+    }
+    
+    void make(){
+        jToggleButton4.setText("Criar");
+    }
+    
+    void change(){
+        jToggleButton4.setText("Alterar");
+    }
+    
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
