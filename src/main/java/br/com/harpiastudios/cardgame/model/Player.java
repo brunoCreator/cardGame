@@ -17,7 +17,6 @@ public class Player {
     protected float defesa = 10;
     protected float mana = 1;
     protected Deck deck;
-    protected Hand hand;
 
     public Player(String nome, Deck deck) {
         this.nome = nome;
