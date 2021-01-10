@@ -574,6 +574,7 @@ public class BattlefieldView extends javax.swing.JDialog {
 
     private void btnSkipTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSkipTurnActionPerformed
         System.out.println("Você passou o turno..");
+        this.setTitle(battlefield.getBattlefieldTitle());
     }//GEN-LAST:event_btnSkipTurnActionPerformed
 
 

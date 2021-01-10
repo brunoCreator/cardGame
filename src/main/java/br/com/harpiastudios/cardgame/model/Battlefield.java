@@ -25,7 +25,7 @@ public class Battlefield {
     }
 
     public void SkipTurn() {
-    
+        turn++;
     }
     
     public int ApplyEffect(String input, int total, TargetEnum target) {
@@ -88,6 +88,15 @@ public class Battlefield {
         return total;
     }
 
+    public String getBattlefieldTitle() {
+        String result = "Modo: %mode | %player vs %enemy | Turno: %turn"
+        .replace("%modo", enemy.getDificuldade().toString())
+        .replace("%player", player.getNome())
+        .replace("%enemy", enemy.getNome())
+        .replace("%turn", String.valueOf(turn));
+        return result;
+    }
+    
     public int getTurn() {
         return turn;
     }
