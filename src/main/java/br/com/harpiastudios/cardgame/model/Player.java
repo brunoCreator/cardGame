@@ -5,16 +5,25 @@
  */
 package br.com.harpiastudios.cardgame.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Diego
  */
 public class Player {
-    private String nome;
-    private float vida = 20;
-    private float defesa = 10;
-    private float mana = 1;
+    protected String nome;
+    protected float vida = 20;
+    protected float defesa = 10;
+    protected float mana = 1;
+    protected Deck deck;
+    protected Hand hand;
 
+    public Player(String nome, Deck deck) {
+        this.nome = nome;
+        this.deck = deck;
+    }
+    
     public String getNome() {
         return nome;
     }

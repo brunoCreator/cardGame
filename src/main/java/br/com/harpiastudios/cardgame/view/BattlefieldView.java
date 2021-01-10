@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class BattlefieldView extends javax.swing.JDialog {
-
     private ArrayList<CardField> fields = new ArrayList();
 
     /**
@@ -24,6 +23,11 @@ public class BattlefieldView extends javax.swing.JDialog {
         initComponents();
     }
 
+    private void LoadFields() {
+        fields.clear();
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,23 +46,23 @@ public class BattlefieldView extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         playerHand = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        lblCardNameF5 = new javax.swing.JLabel();
+        lblCardDescF5 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        lblCardNameF4 = new javax.swing.JLabel();
+        lblCardDescF4 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
+        lblCardNameF1 = new javax.swing.JLabel();
+        lblCardDescF1 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        lblCardNameF3 = new javax.swing.JLabel();
+        lblCardDescF3 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
+        lblCardNameF6 = new javax.swing.JLabel();
+        lblCardDescF6 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
+        lblCardNameF2 = new javax.swing.JLabel();
+        lblCardDescF2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnSkipTurn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -166,15 +170,15 @@ public class BattlefieldView extends javax.swing.JDialog {
 
         jPanel9.setBackground(new java.awt.Color(142, 68, 173));
 
-        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Cardname Here");
+        lblCardNameF5.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblCardNameF5.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardNameF5.setText("Cardname Here");
 
-        jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Descrição");
-        jLabel17.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblCardDescF5.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblCardDescF5.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardDescF5.setText("Descrição");
+        lblCardDescF5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblCardDescF5.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -183,31 +187,31 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardNameF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardDescF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCardNameF5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                .addComponent(lblCardDescF5, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
         );
 
         jPanel14.setBackground(new java.awt.Color(142, 68, 173));
 
-        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Cardname Here");
+        lblCardNameF4.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblCardNameF4.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardNameF4.setText("Cardname Here");
 
-        jLabel34.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setText("Descrição");
-        jLabel34.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel34.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblCardDescF4.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblCardDescF4.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardDescF4.setText("Descrição");
+        lblCardDescF4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblCardDescF4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -216,31 +220,31 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardNameF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardDescF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCardNameF4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCardDescF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
         );
 
         jPanel15.setBackground(new java.awt.Color(142, 68, 173));
 
-        jLabel16.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Cardname Here");
+        lblCardNameF1.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblCardNameF1.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardNameF1.setText("Cardname Here");
 
-        jLabel35.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("Descrição");
-        jLabel35.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel35.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblCardDescF1.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblCardDescF1.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardDescF1.setText("Descrição");
+        lblCardDescF1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblCardDescF1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -249,31 +253,31 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardNameF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardDescF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCardNameF1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCardDescF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
         );
 
         jPanel16.setBackground(new java.awt.Color(142, 68, 173));
 
-        jLabel36.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("Cardname Here");
+        lblCardNameF3.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblCardNameF3.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardNameF3.setText("Cardname Here");
 
-        jLabel37.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("Descrição");
-        jLabel37.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel37.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblCardDescF3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblCardDescF3.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardDescF3.setText("Descrição");
+        lblCardDescF3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblCardDescF3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -282,31 +286,31 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardNameF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardDescF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCardNameF3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCardDescF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
         );
 
         jPanel17.setBackground(new java.awt.Color(142, 68, 173));
 
-        jLabel38.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel38.setText("Cardname Here");
+        lblCardNameF6.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblCardNameF6.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardNameF6.setText("Cardname Here");
 
-        jLabel39.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("Descrição");
-        jLabel39.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel39.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblCardDescF6.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblCardDescF6.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardDescF6.setText("Descrição");
+        lblCardDescF6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblCardDescF6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -315,31 +319,31 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardNameF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardDescF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCardNameF6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCardDescF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
         );
 
         jPanel18.setBackground(new java.awt.Color(142, 68, 173));
 
-        jLabel40.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Cardname Here");
+        lblCardNameF2.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        lblCardNameF2.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardNameF2.setText("Cardname Here");
 
-        jLabel41.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("Descrição");
-        jLabel41.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblCardDescF2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        lblCardDescF2.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardDescF2.setText("Descrição");
+        lblCardDescF2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblCardDescF2.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -348,17 +352,17 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardNameF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardDescF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCardNameF2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCardDescF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(40, 40, 40))
         );
 
@@ -520,24 +524,12 @@ public class BattlefieldView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSkipTurn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
@@ -550,6 +542,18 @@ public class BattlefieldView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblCardDescF1;
+    private javax.swing.JLabel lblCardDescF2;
+    private javax.swing.JLabel lblCardDescF3;
+    private javax.swing.JLabel lblCardDescF4;
+    private javax.swing.JLabel lblCardDescF5;
+    private javax.swing.JLabel lblCardDescF6;
+    private javax.swing.JLabel lblCardNameF1;
+    private javax.swing.JLabel lblCardNameF2;
+    private javax.swing.JLabel lblCardNameF3;
+    private javax.swing.JLabel lblCardNameF4;
+    private javax.swing.JLabel lblCardNameF5;
+    private javax.swing.JLabel lblCardNameF6;
     private javax.swing.JLabel lblDesist;
     private javax.swing.JPanel playerHand;
     // End of variables declaration//GEN-END:variables
