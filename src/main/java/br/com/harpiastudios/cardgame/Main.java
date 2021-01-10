@@ -6,6 +6,7 @@
 package br.com.harpiastudios.cardgame;
 
 import br.com.harpiastudios.cardgame.view.LoginView;
+import br.com.harpiastudios.cardgame.view.MenuView;
 
 /**
  *
@@ -13,7 +14,7 @@ import br.com.harpiastudios.cardgame.view.LoginView;
  */
 public class Main {
     public static void main(String[] args){
-        LoginView view = new LoginView();
+        MenuView view = new MenuView();
         view.setVisible(true);
     }
 }

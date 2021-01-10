@@ -142,7 +142,7 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login() {
-        MainView view = new MainView();
+        //Main view = new Main();
         disable();
     }
     
