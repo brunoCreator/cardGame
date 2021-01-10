@@ -23,8 +23,8 @@ public class BattleField extends javax.swing.JFrame {
     }
     
     int c1,c2,c3,c4,c5;
-    int mana,vida,defesa,cartas;
-    int emana,evida,edefesa,ecartas;
+    int mana=1,vida=20,defesa=0,cartas=10;
+    int emana=1,evida=20,edefesa=0,ecartas=10;
     
     List<Card> deck;
     List<Card> edeck;
@@ -577,6 +577,10 @@ public class BattleField extends javax.swing.JFrame {
         jLabel10.setText("Vida: "+evida);
         jLabel22.setText("Defesa: "+edefesa);
         jLabel23.setText("Mana: "+emana);
+        
+        if(vida <= 0 && evida <= 0){
+           //mudar de painel, para derrota ou vitoria 
+        }
     }
     
     
