@@ -6,6 +6,7 @@
 package br.com.harpiastudios.cardgame.model;
 
 import br.com.harpiastudios.cardgame.enumerator.DifficultyEnum;
+import br.com.harpiastudios.cardgame.enumerator.TargetEnum;
 import java.util.ArrayList;
 
 /**
@@ -23,7 +24,11 @@ public class Battlefield {
         this.enemy = enemy;
     }
 
-    private int applyEffect(String input, int total, boolean alvo) {
+    public void SkipTurn() {
+    
+    }
+    
+    public int ApplyEffect(String input, int total, TargetEnum target) {
         String[] items;
 
         items = input.split("((?<=([\\+\\-\\*\\^\\@\\#v]))|(?=([\\+\\-\\*\\^\\@\\#v])))");
@@ -48,7 +53,7 @@ public class Battlefield {
                 }
             } else if (items[i].equals("v")) {//vida
                 if (i - 1 >= 0 && i + 1 <= items.length) {
-                    if (alvo) {
+                    if (target == TargetEnum.PLAYER) {
                         total += player.getVida();
                     } else {
                         total += enemy.getVida();
@@ -56,7 +61,7 @@ public class Battlefield {
                 }
             } else if (items[i].equals("^")) {//defesa
                 if (i - 1 >= 0 && i + 1 <= items.length) {
-                    if (alvo) {
+                    if (target == TargetEnum.PLAYER) {
                         total += player.getDefesa();
                     } else {
                         total += enemy.getDefesa();
@@ -64,7 +69,7 @@ public class Battlefield {
                 }
             } else if (items[i].equals("@")) {//mana
                 if (i - 1 >= 0 && i + 1 <= items.length) {
-                    if (alvo) {
+                    if (target == TargetEnum.PLAYER) {
                         total += player.getMana();
                     } else {
                         total += enemy.getMana();
@@ -72,7 +77,7 @@ public class Battlefield {
                 }
             } else if (items[i].equals("#")) {//carta
                 if (i - 1 >= 0 && i + 1 <= items.length) {
-                    if (alvo) {
+                    if (target == TargetEnum.PLAYER) {
                         //total += cartas;
                     } else {
                         //total += ecartas;
