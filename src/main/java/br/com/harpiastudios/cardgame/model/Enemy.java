@@ -18,6 +18,17 @@ public class Enemy extends Player {
     public Enemy(String nome, String historia, Deck deck, DifficultyEnum dificuldade) {
         super(nome, deck);
         this.dificuldade = dificuldade;
+        switch(dificuldade) {
+            case EASY:
+                vida = 15;
+                break;
+            case MEDIUM:
+                vida = 20;
+                break;
+            case HARD:
+                vida = 25;
+                break;
+        }
         this.historia = historia;
     }
     
