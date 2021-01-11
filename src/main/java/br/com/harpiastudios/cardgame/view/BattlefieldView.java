@@ -6,7 +6,7 @@
 package br.com.harpiastudios.cardgame.view;
 
 import br.com.harpiastudios.cardgame.enumerator.TurnEnum;
-import br.com.harpiastudios.cardgame.model.Battlefield;
+import br.com.harpiastudios.cardgame.controller.BattlefieldController;
 import br.com.harpiastudios.cardgame.model.CardField;
 import br.com.harpiastudios.cardgame.model.Deck;
 import br.com.harpiastudios.cardgame.model.Enemy;
@@ -22,7 +22,7 @@ import javax.swing.JTextArea;
  */
 public class BattlefieldView extends javax.swing.JDialog {
 
-    private Battlefield battlefield;
+    private BattlefieldController battlefield;
     private ArrayList<CardField> fields = new ArrayList();
 
     /**
@@ -33,7 +33,7 @@ public class BattlefieldView extends javax.swing.JDialog {
         initComponents();
         LoadFields();
         try {
-            battlefield = new Battlefield(new Player(user.getPlayerName(), Deck.clone(decks[0])), new Enemy("Darthvader", "Sei lá", Deck.clone(decks[1]), Battlefield.getDifficultyByString(difficulty)), this);
+            battlefield = new BattlefieldController(new Player(user.getPlayerName(), Deck.clone(decks[0])), new Enemy("Darthvader", "Sei lá", Deck.clone(decks[1]), BattlefieldController.getDifficultyByString(difficulty)), this);
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Um erro ocorreu, tente novamente mais tarde..");
