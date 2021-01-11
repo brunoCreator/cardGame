@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -119,7 +120,7 @@ public class Battlefield {
             getSelectedField().setCarta(null);
             player.decreaseMana(card.getCusto());
             for (Effect effect : card.getEfeito()) {
-                if (!effect.isAlvo()) {
+                if (effect.isAlvo()) {
                     int mana = ApplyEffect(effect.getMana(), player.getMana(), TargetEnum.PLAYER);
                     System.out.println("Mana: " + mana);
                     player.setMana(mana);
@@ -159,13 +160,14 @@ public class Battlefield {
             }
             turn = TurnEnum.PLAYER;
             IncreaseTurn();
+            EnemyAttack();
         } else {
             Card card = enemy.getRandomFromHand();
             view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O inimigo atacou usando a carta: " + card.getNome() + ".");
             enemy.getHand().remove(card);
             enemy.decreaseMana(card.getCusto());
             for (Effect effect : card.getEfeito()) {
-                if (effect.isAlvo()) {
+                if (!effect.isAlvo()) {
                     int mana = ApplyEffect(effect.getMana(), player.getMana(), TargetEnum.PLAYER);
                     System.out.println("Mana: " + mana);
                     player.setMana(mana);
@@ -215,6 +217,16 @@ public class Battlefield {
             fields.get(index).setCarta(c);
             fields.get(index).Update();
             index++;
+        }
+        if(enemy.getVida() <= 0 && player.getVida() > 0) {
+            JOptionPane.showMessageDialog(null, "Parabéns, você venceu a partida!");
+            view.dispose();
+        }else if(enemy.getVida() > 0 && player.getVida() <= 0){
+            JOptionPane.showMessageDialog(null, "Que falta de sorte hein! Você perdeu esta partida.");
+            view.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Ops. Parece que houve um empate!");
+            view.dispose();
         }
         view.Update();
     }
