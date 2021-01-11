@@ -232,7 +232,8 @@ public class Battlefield {
         
         public int ApplyEffect(String input, float total, TargetEnum target) {
         String[] items;
-        int num;
+        int num = 0;
+        
         items = input.split("((?<=([\\+\\-\\*\\^\\@\\#v]))|(?=([\\+\\-\\*\\^\\@\\#v])))");
         
         if(items[0].matches("\\d+([.]\\d+)*")){
