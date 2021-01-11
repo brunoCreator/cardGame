@@ -139,16 +139,15 @@ public class BattlefieldController {
                     if (cartas > 0) {
                         for (int i = 0; i < cartas; i++) {
                             if (player.getHand().size() + 1 < 6) {
-                                int pos = rand.nextInt(player.getDeck().getCards().size());
-                                if (pos > -1) {
-                                    player.getHand().add(player.getDeck().getCards().get(pos));
-                                    player.getDeck().getCards().remove(pos);
+                                if (player.getDeck().getCards().size() > 0) {
+                                    Card c = player.getDeck().getCards().get(player.getDeck().getCards().size() - 1);
+                                    player.getHand().add(c);
+                                    player.getDeck().getCards().remove(c);
                                 }
                             }
                         }
-                    } else if(cartas < 0) {
+                    } else if (cartas < 0) {
                         for (int i = 0; i < (cartas * -1); i++) {
-                            System.out.println("Index > " + i);
                             player.getCemitery().add(player.getRandomFromHand());
                         }
                     }
@@ -160,14 +159,14 @@ public class BattlefieldController {
                     if (cartas > 0) {
                         for (int i = 0; i < cartas; i++) {
                             if (enemy.getHand().size() + 1 < 6) {
-                                int pos = rand.nextInt(enemy.getDeck().getCards().size());
-                                if (pos > -1) {
-                                    enemy.getHand().add(enemy.getDeck().getCards().get(pos));
-                                    enemy.getDeck().getCards().remove(pos);
+                                if (enemy.getDeck().getCards().size() > 0) {
+                                    Card c = enemy.getDeck().getCards().get(enemy.getDeck().getCards().size() - 1);
+                                    enemy.getHand().add(c);
+                                    enemy.getDeck().getCards().remove(c);
                                 }
                             }
                         }
-                    } else if(cartas < 0) {
+                    } else if (cartas < 0) {
                         for (int i = 0; i < (cartas * -1); i++) {
                             enemy.getCemitery().add(enemy.getRandomFromHand());
                         }
@@ -206,14 +205,14 @@ public class BattlefieldController {
                             if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
                                     if (player.getHand().size() + 1 < 6) {
-                                        int pos = rand.nextInt(player.getDeck().getCards().size());
-                                        if (pos > -1) {
-                                            player.getHand().add(player.getDeck().getCards().get(pos));
-                                            player.getDeck().getCards().remove(pos);
+                                        if (player.getDeck().getCards().size() > 0) {
+                                            Card c = player.getDeck().getCards().get(player.getDeck().getCards().size() - 1);
+                                            player.getHand().add(c);
+                                            player.getDeck().getCards().remove(c);
                                         }
                                     }
                                 }
-                            } else if(cartas < 0) {
+                            } else if (cartas < 0) {
                                 for (int i = 0; i < (cartas * -1); i++) {
                                     player.getCemitery().add(player.getRandomFromHand());
                                 }
@@ -228,14 +227,14 @@ public class BattlefieldController {
                             if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
                                     if (enemy.getHand().size() + 1 < 6) {
-                                        int pos = rand.nextInt(enemy.getDeck().getCards().size());
-                                        if (pos > -1) {
-                                            enemy.getHand().add(enemy.getDeck().getCards().get(pos));
-                                            enemy.getDeck().getCards().remove(pos);
+                                        if (enemy.getDeck().getCards().size() > 0) {
+                                            Card c = enemy.getDeck().getCards().get(enemy.getDeck().getCards().size() - 1);
+                                            enemy.getHand().add(c);
+                                            enemy.getDeck().getCards().remove(c);
                                         }
                                     }
                                 }
-                            } else if(cartas < 0) {
+                            } else if (cartas < 0) {
                                 for (int i = 0; i < (cartas * -1); i++) {
                                     enemy.getCemitery().add(enemy.getRandomFromHand());
                                 }
