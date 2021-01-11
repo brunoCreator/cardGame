@@ -136,11 +136,7 @@ public class BattlefieldController {
                     player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
                     int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER) - player.getHand().size();
                     System.out.println("Attack: Quantidade de cartas: " + cartas);
-                    if (player.getHand().size() > cartas) {
-                        for (int i = 0; i < cartas; i++) {
-                            player.getCemitery().add(player.getRandomFromHand());
-                        }
-                    } else {
+                    if (cartas > 0) {
                         for (int i = 0; i < cartas; i++) {
                             if (player.getHand().size() + 1 < 6) {
                                 int pos = rand.nextInt(player.getDeck().getCards().size());
@@ -150,17 +146,18 @@ public class BattlefieldController {
                                 }
                             }
                         }
+                    } else if(cartas < 0) {
+                        for (int i = 0; i < (cartas * -1); i++) {
+                            System.out.println("Index > " + i);
+                            player.getCemitery().add(player.getRandomFromHand());
+                        }
                     }
                 } else {
                     enemy.setMana(ApplyEffect(effect.getMana(), enemy.getMana(), TargetEnum.ENEMY));
                     enemy.setVida(ApplyEffect(effect.getVida(), enemy.getVida(), TargetEnum.ENEMY));
                     enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
                     int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY) - enemy.getHand().size();
-                    if (enemy.getHand().size() > cartas) {
-                        for (int i = 0; i < cartas; i++) {
-                            enemy.getCemitery().add(enemy.getRandomFromHand());
-                        }
-                    } else {
+                    if (cartas > 0) {
                         for (int i = 0; i < cartas; i++) {
                             if (enemy.getHand().size() + 1 < 6) {
                                 int pos = rand.nextInt(enemy.getDeck().getCards().size());
@@ -169,6 +166,10 @@ public class BattlefieldController {
                                     enemy.getDeck().getCards().remove(pos);
                                 }
                             }
+                        }
+                    } else if(cartas < 0) {
+                        for (int i = 0; i < (cartas * -1); i++) {
+                            enemy.getCemitery().add(enemy.getRandomFromHand());
                         }
                     }
                 }
@@ -202,11 +203,7 @@ public class BattlefieldController {
                             player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
                             int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER) - player.getHand().size();
                             System.out.println("Quantidade de cartas: " + cartas);
-                            if (player.getHand().size() > cartas) {
-                                for (int i = 0; i < cartas; i++) {
-                                    player.getCemitery().add(player.getRandomFromHand());
-                                }
-                            } else {
+                            if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
                                     if (player.getHand().size() + 1 < 6) {
                                         int pos = rand.nextInt(player.getDeck().getCards().size());
@@ -216,6 +213,10 @@ public class BattlefieldController {
                                         }
                                     }
                                 }
+                            } else if(cartas < 0) {
+                                for (int i = 0; i < (cartas * -1); i++) {
+                                    player.getCemitery().add(player.getRandomFromHand());
+                                }
                             }
                             UpdatePlayerHand();
                         } else {
@@ -224,11 +225,7 @@ public class BattlefieldController {
                             enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
                             int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY) - enemy.getHand().size();
                             System.out.println("Quantidade de cartas: " + cartas);
-                            if (enemy.getHand().size() > cartas) {
-                                for (int i = 0; i < cartas; i++) {
-                                    enemy.getCemitery().add(enemy.getRandomFromHand());
-                                }
-                            } else {
+                            if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
                                     if (enemy.getHand().size() + 1 < 6) {
                                         int pos = rand.nextInt(enemy.getDeck().getCards().size());
@@ -237,6 +234,10 @@ public class BattlefieldController {
                                             enemy.getDeck().getCards().remove(pos);
                                         }
                                     }
+                                }
+                            } else if(cartas < 0) {
+                                for (int i = 0; i < (cartas * -1); i++) {
+                                    enemy.getCemitery().add(enemy.getRandomFromHand());
                                 }
                             }
                             UpdatePlayerHand();
