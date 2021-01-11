@@ -138,7 +138,7 @@ public class BattlefieldController {
                     System.out.println("Attack: Quantidade de cartas: " + cartas);
                     if (cartas > 0) {
                         for (int i = 0; i < cartas; i++) {
-                            if (player.getHand().size() + 1 < 6) {
+                            if (player.getHand().size() + 1 <= 6) {
                                 if (player.getDeck().getCards().size() > 0) {
                                     Card c = player.getDeck().getCards().get(player.getDeck().getCards().size() - 1);
                                     player.getHand().add(c);
@@ -158,7 +158,7 @@ public class BattlefieldController {
                     int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY) - enemy.getHand().size();
                     if (cartas > 0) {
                         for (int i = 0; i < cartas; i++) {
-                            if (enemy.getHand().size() + 1 < 6) {
+                            if (enemy.getHand().size() + 1 <= 6) {
                                 if (enemy.getDeck().getCards().size() > 0) {
                                     Card c = enemy.getDeck().getCards().get(enemy.getDeck().getCards().size() - 1);
                                     enemy.getHand().add(c);
@@ -204,7 +204,7 @@ public class BattlefieldController {
                             System.out.println("Quantidade de cartas: " + cartas);
                             if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
-                                    if (player.getHand().size() + 1 < 6) {
+                                    if (player.getHand().size() + 1 <= 6) {
                                         if (player.getDeck().getCards().size() > 0) {
                                             Card c = player.getDeck().getCards().get(player.getDeck().getCards().size() - 1);
                                             player.getHand().add(c);
@@ -226,7 +226,7 @@ public class BattlefieldController {
                             System.out.println("Quantidade de cartas: " + cartas);
                             if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
-                                    if (enemy.getHand().size() + 1 < 6) {
+                                    if (enemy.getHand().size() + 1 <= 6) {
                                         if (enemy.getDeck().getCards().size() > 0) {
                                             Card c = enemy.getDeck().getCards().get(enemy.getDeck().getCards().size() - 1);
                                             enemy.getHand().add(c);
