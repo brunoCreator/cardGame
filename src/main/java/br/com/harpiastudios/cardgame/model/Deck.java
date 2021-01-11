@@ -7,26 +7,30 @@ package br.com.harpiastudios.cardgame.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Stack;
+import java.util.List;
 
 /**
  *
  * @author rotch
  */
 public class Deck {
-
     private int id;
     private String nome;
-    private Stack<Card> cards = new Stack();
+    private ArrayList<Card> cartas = new ArrayList();
+
+    public Deck(String nome, ArrayList<Card> cards) {
+        this.nome = nome;
+        cartas.clear();
+        cartas.addAll(List.copyOf(cards));
+        Collections.shuffle(cartas);
+    }
     
     public Deck(int id, String nome, ArrayList<Card> cards) {
         this.id = id;
         this.nome = nome;
-        Collections.shuffle(cards);
-        this.cards.clear();
-        cards.forEach((Card card) -> {
-            this.cards.add(card);
-        });
+        cartas.clear();
+        cartas.addAll(cards);
+        System.out.println("Size > " + cartas.size());
     }
 
     public int getId() {
@@ -45,29 +49,36 @@ public class Deck {
         this.nome = nome;
     }
 
-    public Stack<Card> getCards() {
-        return cards;
+    public ArrayList<Card> getCards() {
+        return cartas;
     }
 
-    public void setCards(Stack<Card> cards) {
-        this.cards = cards;
+    public void setCards(ArrayList<Card> cartas) {
+        this.cartas = cartas;
     }
-
+    
     public Card get() {
         try {
-            return cards.pop();
-        }catch(Exception e) {
+            Card card = cartas.get(cartas.size() - 1);
+            cartas.remove(card);
+            return card;
+        } catch (Exception e) {
             return null;
         }
     }
-
+    
     public ArrayList<Card> getListForHand() {
         ArrayList<Card> hand = new ArrayList();
-        if (cards.size() > 0) {
-            for (int i = 0; i < 6; i++) {
+        if (cartas.size() >= 3) {
+            for (int i = 0; i < 3; i++) {
                 hand.add(get());
             }
         }
         return hand;
+    }
+
+    public static Deck clone(Deck target) {
+        Deck deck = new Deck(target.getNome(), target.getCards());
+        return deck;
     }
 }

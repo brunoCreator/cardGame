@@ -10,12 +10,20 @@ package br.com.harpiastudios.cardgame.model;
  * @author rotch
  */
 public class Card {
+
     private int id;
     private String nome;
     private String descricao;
     private int custo;
     private Effect[] efeito;
 
+    public Card(String nome, String descricao, int custo, Effect[] efeito) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.custo = custo;
+        this.efeito = efeito;
+    }
+    
     public Card(int id, String nome, String descricao, int custo, Effect[] efeito) {
         this.id = id;
         this.nome = nome;

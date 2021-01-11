@@ -6,6 +6,7 @@
 package br.com.harpiastudios.cardgame.model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Player {
     protected float mana = 1;
     protected Deck deck;
     protected ArrayList<Card> hand = new ArrayList();
+    protected ArrayList<Card> cemitery = new ArrayList();
 
     public Player(String nome, Deck deck) {
         this.nome = nome;
@@ -89,7 +91,32 @@ public class Player {
         this.hand = hand;
     }
     
+    public Card getFromHand() {
+        Card res = hand.get(hand.size()-1);
+        hand.remove(res);
+        return res;
+    }
+    
+    private Random rand = new Random();
+    public Card getRandomFromHand() {
+        Card res = hand.get(rand.nextInt(hand.size()-1));
+        hand.remove(res);
+        return res;
+    }
+    
     public int getCardsCount() {
         return hand.size() + deck.getCards().size();
+    }
+
+    public ArrayList<Card> getCemitery() {
+        return cemitery;
+    }
+
+    public void setCemitery(ArrayList<Card> cemitery) {
+        this.cemitery = cemitery;
+    }
+
+    public Deck getDeck() {
+        return deck;
     }
 }

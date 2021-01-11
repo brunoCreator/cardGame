@@ -32,8 +32,13 @@ public class BattlefieldView extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         LoadFields();
-        Deck pDeck = new Deck(2, "Teste", new ArrayList());
-        battlefield = new Battlefield(new Player(user.getPlayerName(), decks[0]), new Enemy("Darthvader", "Sei lá", decks[1], Battlefield.getDifficultyByString(difficulty)), this);
+        try {
+            battlefield = new Battlefield(new Player(user.getPlayerName(), Deck.clone(decks[0])), new Enemy("Darthvader", "Sei lá", Deck.clone(decks[1]), Battlefield.getDifficultyByString(difficulty)), this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Um erro ocorreu, tente novamente mais tarde..");
+            dispose();
+        }
         UpdateName();
         Update();
     }
@@ -250,7 +255,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(pnCardF4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnCardF4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCardNameF4, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(lblCardNameF4, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(lblCardDescF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -292,7 +297,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(pnCardF1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnCardF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCardNameF1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(lblCardNameF1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(lblCardDescF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -334,7 +339,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(pnCardF3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnCardF3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCardNameF3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(lblCardNameF3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(lblCardDescF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -376,7 +381,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(pnCardF6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnCardF6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCardNameF6, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(lblCardNameF6, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(lblCardDescF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -418,7 +423,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             .addGroup(pnCardF2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnCardF2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCardNameF2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(lblCardNameF2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(lblCardDescF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -438,30 +443,30 @@ public class BattlefieldView extends javax.swing.JDialog {
             playerHandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerHandLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnCardF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnCardF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnCardF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnCardF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnCardF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnCardF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnCardF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnCardF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnCardF5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnCardF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnCardF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         playerHandLayout.setVerticalGroup(
             playerHandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playerHandLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(playerHandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(playerHandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnCardF5, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                     .addComponent(pnCardF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnCardF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnCardF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnCardF6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnCardF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnCardF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnCardF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnCardF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -485,6 +490,8 @@ public class BattlefieldView extends javax.swing.JDialog {
 
         taLog.setEditable(false);
         taLog.setColumns(20);
+        taLog.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        taLog.setForeground(new java.awt.Color(51, 51, 51));
         taLog.setRows(5);
         taLog.setText("Log:");
         jScrollPane1.setViewportView(taLog);
@@ -553,7 +560,7 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -561,7 +568,7 @@ public class BattlefieldView extends javax.swing.JDialog {
                                 .addGap(423, 423, 423)
                                 .addComponent(pnEnemy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(240, 240, 240)
-                                .addComponent(btnSkipTurn, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                                .addComponent(btnSkipTurn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(lblTurn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(playerHand, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
@@ -628,10 +635,14 @@ public class BattlefieldView extends javax.swing.JDialog {
     }//GEN-LAST:event_pnCardF6MouseReleased
 
     private void pnEnemyMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnEnemyMouseReleased
-        if(battlefield.getTurn() == TurnEnum.PLAYER) {
-            if(battlefield.hasFieldSelected()) {
-                System.out.println("Player attack.");
-            }else{
+        if (battlefield.getTurn() == TurnEnum.PLAYER) {
+            if (battlefield.hasFieldSelected()) {
+                if (battlefield.getSelectedField().getCarta().getCusto() <= battlefield.getPlayer().getMana()) {
+                    battlefield.Attack(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Você não tem mana suficiente para utilizar esta carta! Custo: " + battlefield.getSelectedField().getCarta().getCusto() + ".");
+                }
+            } else {
                 JOptionPane.showMessageDialog(null, "Selecione uma carta antes de realizar um ataque.");
             }
         }
@@ -682,10 +693,10 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblEnemyLife.setText(String.valueOf(battlefield.getEnemy().getVida()));
         lblEnemyDef.setText(String.valueOf(battlefield.getEnemy().getDefesa()));
         lblPlayerStats.setText("Vida: %life | Defesa: %def | Mana: %mana | Cartas: %cards"
-            .replace("%life", String.valueOf(battlefield.getPlayer().getVida()))
-            .replace("%def", String.valueOf(battlefield.getPlayer().getDefesa()))
-            .replace("%mana", String.valueOf(battlefield.getPlayer().getMana()))
-            .replace("%cards", String.valueOf(battlefield.getPlayer().getCardsCount()))
+                .replace("%life", String.valueOf(battlefield.getPlayer().getVida()))
+                .replace("%def", String.valueOf(battlefield.getPlayer().getDefesa()))
+                .replace("%mana", String.valueOf(battlefield.getPlayer().getMana()))
+                .replace("%cards", String.valueOf(battlefield.getPlayer().getCardsCount()))
         );
     }
 

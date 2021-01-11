@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
  * @author Diego
  */
 public class CardField {
+
     private JLabel nome;
     private JLabel descricao;
     private JPanel content;
@@ -26,11 +27,17 @@ public class CardField {
         this.nome = nome;
         this.descricao = descricao;
         this.content = content;
+        Update();
     }
 
     public void Update() {
-        nome.setText(carta.getNome());
-        descricao.setText(carta.getDescricao());
+        if (carta != null) {
+            nome.setText(carta.getNome());
+            descricao.setText(carta.getDescricao());
+            setEnabled(true);
+        }else{
+            setEnabled(false);
+        }
     }
 
     public void setEnabled(boolean value) {
@@ -72,7 +79,7 @@ public class CardField {
     public void setSelected(boolean value) {
         if (value) {
             content.setBorder(new LineBorder(Color.decode("#d484f5"), 2));
-        }else{
+        } else {
             content.setBorder(null);
         }
         selected = value;
