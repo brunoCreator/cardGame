@@ -5,7 +5,7 @@
  */
 package br.com.harpiastudios.cardgame.view;
 
-
+import br.com.harpiastudios.cardgame.controller.SaveController;
 import br.com.harpiastudios.cardgame.model.Storage;
 import java.awt.CardLayout;
 
@@ -20,26 +20,26 @@ public class MenuView extends javax.swing.JFrame {
     private JogarView jogar;
     private Storage storage;
     private CardLayout cardLayout;
-    
+
     public MenuView() {
         initComponents();
+        SaveController save = new SaveController();
+        storage = save.Load();
         
-        storage = new Storage();
-        
-        cardLayout = (CardLayout)(cards.getLayout());
-        
+
+        cardLayout = (CardLayout) (cards.getLayout());
+
         card = new CardView(storage);
         deck = new DeckView(storage);
         jogar = new JogarView(storage);
-        
+
         //fild = new 
-                
         cards.add(card);
         cards.add(card, "card");
-        
+
         cards.add(deck);
         cards.add(deck, "deck");
-        
+
         cards.add(jogar);
         cards.add(jogar, "jogar");
     }

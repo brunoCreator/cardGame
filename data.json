@@ -1,0 +1,1 @@
+{"usuario":{"playerName":"John","username":"admin","password":"admin","victories":0,"defeats":0},"cards":[{"id":0,"nome":"1","descricao":"1","custo":1,"efeito":[{"alvo":true,"vida":"0","mana":"0","cartas":"0","defesa":"0"},{"alvo":false,"vida":"0","mana":"0","cartas":"0","defesa":"0"}]}],"decks":[]}
