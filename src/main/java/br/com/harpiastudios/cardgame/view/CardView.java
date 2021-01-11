@@ -89,6 +89,7 @@ public class CardView extends javax.swing.JPanel {
         setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
+        jTextField9.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField9.setText("0");
 
         jButton1.setBackground(new java.awt.Color(34, 35, 40));
@@ -166,6 +167,10 @@ public class CardView extends javax.swing.JPanel {
             }
         });
 
+        jTextField2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+
+        jTextField1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("nome");
@@ -174,6 +179,7 @@ public class CardView extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("descricao");
 
+        jTextField6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField6.setText("0");
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,8 +187,10 @@ public class CardView extends javax.swing.JPanel {
             }
         });
 
+        jTextField7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField7.setText("0");
 
+        jTextField8.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField8.setText("0");
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +205,8 @@ public class CardView extends javax.swing.JPanel {
         jLabel21.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Criação da carta");
+
+        jTextField3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -229,6 +239,7 @@ public class CardView extends javax.swing.JPanel {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("cartas");
 
+        jTextField10.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField10.setText("0");
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,8 +247,10 @@ public class CardView extends javax.swing.JPanel {
             }
         });
 
+        jTextField11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField11.setText("0");
 
+        jTextField12.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField12.setText("0");
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,6 +258,7 @@ public class CardView extends javax.swing.JPanel {
             }
         });
 
+        jTextField13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField13.setText("0");
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
@@ -256,9 +270,7 @@ public class CardView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197)
+                .addGap(308, 308, 308)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,15 +353,15 @@ public class CardView extends javax.swing.JPanel {
                                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(313, 313, 313)))))
                         .addGap(404, 404, 404))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jLabel21)
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
