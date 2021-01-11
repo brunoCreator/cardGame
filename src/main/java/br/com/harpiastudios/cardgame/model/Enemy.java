@@ -52,6 +52,7 @@ public class Enemy extends Player {
         for(int i = 0; i < count; i++) {
             int pos = hand.size() - 1;
             if(pos > -1 && pos < hand.size()) {
+                cemitery.add(hand.get(pos));
                 hand.remove(pos);
                 Card card = deck.get();
                 if(card != null) {

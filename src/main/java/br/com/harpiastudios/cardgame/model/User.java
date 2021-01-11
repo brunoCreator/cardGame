@@ -13,8 +13,6 @@ public class User {
     private String playerName;
     private String username;
     private String password;
-    private int victories = 0;
-    private int defeats = 0;
 
     public User(String playerName, String username, String password) {
         this.playerName = playerName;
@@ -44,21 +42,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getVictories() {
-        return victories;
-    }
-
-    public void setVictories(int victories) {
-        this.victories = victories;
-    }
-
-    public int getDefeats() {
-        return defeats;
-    }
-
-    public void setDefeats(int defeats) {
-        this.defeats = defeats;
     }
 }

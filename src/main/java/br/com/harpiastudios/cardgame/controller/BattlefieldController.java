@@ -26,7 +26,6 @@ import javax.swing.JOptionPane;
  * @author Diego
  */
 public class BattlefieldController {
-
     private final BattlefieldView view;
     private TurnEnum turn = TurnEnum.PLAYER;
     private int turnCount = 0;
@@ -246,7 +245,7 @@ public class BattlefieldController {
         VerifyWinner();
     }
 
-    private void UpdatePlayerHand() {
+    public void UpdatePlayerHand() {
         int index = 0;
         fields.forEach(f -> {
             f.setEnabled(false);
@@ -258,7 +257,7 @@ public class BattlefieldController {
         }
     }
 
-    private void VerifyWinner() {
+    public void VerifyWinner() {
         String log = view.getTaLog().getText();
         if (enemy.getVida() <= 0 && player.getVida() > 0) {
             view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " | " + "Parabéns, você venceu a partida!");

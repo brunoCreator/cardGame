@@ -16,7 +16,6 @@ import javax.swing.border.LineBorder;
  * @author Diego
  */
 public class CardField {
-
     private JLabel nome;
     private JLabel descricao;
     private JLabel custo;
