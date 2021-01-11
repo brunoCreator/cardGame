@@ -36,6 +36,7 @@ public class Player {
     }
 
     public float getVida() {
+        if(vida < 0) vida = 0;
         return vida;
     }
 
@@ -44,6 +45,7 @@ public class Player {
     }
 
     public float getDefesa() {
+        if(defesa < 0) defesa = 0;
         return defesa;
     }
 
@@ -52,6 +54,7 @@ public class Player {
     }
 
     public float getMana() {
+        if(mana < 0) mana = 0;
         return mana;
     }
 

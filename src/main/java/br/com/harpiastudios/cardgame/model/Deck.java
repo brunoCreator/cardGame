@@ -30,7 +30,6 @@ public class Deck {
         this.nome = nome;
         cartas.clear();
         cartas.addAll(cards);
-        System.out.println("Size > " + cartas.size());
     }
 
     public int getId() {
@@ -63,6 +62,7 @@ public class Deck {
             cartas.remove(card);
             return card;
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

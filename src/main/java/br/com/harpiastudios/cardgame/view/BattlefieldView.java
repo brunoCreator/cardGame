@@ -62,21 +62,27 @@ public class BattlefieldView extends javax.swing.JDialog {
         playerHand = new javax.swing.JPanel();
         pnCardF5 = new javax.swing.JPanel();
         lblCardNameF5 = new javax.swing.JLabel();
+        lblCardCustoF5 = new javax.swing.JLabel();
         lblCardDescF5 = new javax.swing.JLabel();
         pnCardF4 = new javax.swing.JPanel();
         lblCardNameF4 = new javax.swing.JLabel();
         lblCardDescF4 = new javax.swing.JLabel();
+        lblCardCustoF4 = new javax.swing.JLabel();
         pnCardF1 = new javax.swing.JPanel();
         lblCardNameF1 = new javax.swing.JLabel();
         lblCardDescF1 = new javax.swing.JLabel();
+        lblCardCustoF1 = new javax.swing.JLabel();
         pnCardF3 = new javax.swing.JPanel();
         lblCardNameF3 = new javax.swing.JLabel();
         lblCardDescF3 = new javax.swing.JLabel();
+        lblCardCustoF3 = new javax.swing.JLabel();
         pnCardF6 = new javax.swing.JPanel();
         lblCardNameF6 = new javax.swing.JLabel();
         lblCardDescF6 = new javax.swing.JLabel();
+        lblCardCustoF6 = new javax.swing.JLabel();
         pnCardF2 = new javax.swing.JPanel();
         lblCardNameF2 = new javax.swing.JLabel();
+        lblCardCustoF2 = new javax.swing.JLabel();
         lblCardDescF2 = new javax.swing.JLabel();
         lblTurn = new javax.swing.JLabel();
         btnSkipTurn = new javax.swing.JButton();
@@ -197,6 +203,12 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblCardNameF5.setFocusable(false);
         lblCardNameF5.setRequestFocusEnabled(false);
 
+        lblCardCustoF5.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        lblCardCustoF5.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardCustoF5.setText("Custo: 0");
+        lblCardCustoF5.setFocusable(false);
+        lblCardCustoF5.setRequestFocusEnabled(false);
+
         lblCardDescF5.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         lblCardDescF5.setForeground(new java.awt.Color(255, 255, 255));
         lblCardDescF5.setText("Descrição");
@@ -213,7 +225,8 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(pnCardF5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCardNameF5, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(lblCardDescF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardDescF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardCustoF5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnCardF5Layout.setVerticalGroup(
@@ -222,8 +235,10 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblCardNameF5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCardDescF5, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addComponent(lblCardDescF5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCardCustoF5)
+                .addGap(12, 12, 12))
         );
 
         pnCardF4.setBackground(new java.awt.Color(142, 68, 173));
@@ -248,6 +263,12 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblCardDescF4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblCardDescF4.setRequestFocusEnabled(false);
 
+        lblCardCustoF4.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        lblCardCustoF4.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardCustoF4.setText("Custo: 0");
+        lblCardCustoF4.setFocusable(false);
+        lblCardCustoF4.setRequestFocusEnabled(false);
+
         javax.swing.GroupLayout pnCardF4Layout = new javax.swing.GroupLayout(pnCardF4);
         pnCardF4.setLayout(pnCardF4Layout);
         pnCardF4Layout.setHorizontalGroup(
@@ -256,7 +277,8 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(pnCardF4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCardNameF4, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(lblCardDescF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardDescF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardCustoF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnCardF4Layout.setVerticalGroup(
@@ -265,8 +287,10 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblCardNameF4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCardDescF4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addComponent(lblCardDescF4, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCardCustoF4)
+                .addContainerGap())
         );
 
         pnCardF1.setBackground(new java.awt.Color(142, 68, 173));
@@ -290,6 +314,12 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblCardDescF1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblCardDescF1.setRequestFocusEnabled(false);
 
+        lblCardCustoF1.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        lblCardCustoF1.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardCustoF1.setText("Custo: 0");
+        lblCardCustoF1.setFocusable(false);
+        lblCardCustoF1.setRequestFocusEnabled(false);
+
         javax.swing.GroupLayout pnCardF1Layout = new javax.swing.GroupLayout(pnCardF1);
         pnCardF1.setLayout(pnCardF1Layout);
         pnCardF1Layout.setHorizontalGroup(
@@ -298,6 +328,7 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(pnCardF1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCardNameF1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(lblCardCustoF1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(lblCardDescF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -307,8 +338,10 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblCardNameF1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCardDescF1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addComponent(lblCardDescF1, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCardCustoF1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pnCardF3.setBackground(new java.awt.Color(142, 68, 173));
@@ -332,6 +365,12 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblCardDescF3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblCardDescF3.setRequestFocusEnabled(false);
 
+        lblCardCustoF3.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        lblCardCustoF3.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardCustoF3.setText("Custo: 0");
+        lblCardCustoF3.setFocusable(false);
+        lblCardCustoF3.setRequestFocusEnabled(false);
+
         javax.swing.GroupLayout pnCardF3Layout = new javax.swing.GroupLayout(pnCardF3);
         pnCardF3.setLayout(pnCardF3Layout);
         pnCardF3Layout.setHorizontalGroup(
@@ -340,7 +379,8 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(pnCardF3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCardNameF3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(lblCardDescF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardDescF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardCustoF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnCardF3Layout.setVerticalGroup(
@@ -349,8 +389,10 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblCardNameF3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCardDescF3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addComponent(lblCardDescF3, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCardCustoF3)
+                .addContainerGap())
         );
 
         pnCardF6.setBackground(new java.awt.Color(142, 68, 173));
@@ -374,6 +416,12 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblCardDescF6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblCardDescF6.setRequestFocusEnabled(false);
 
+        lblCardCustoF6.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        lblCardCustoF6.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardCustoF6.setText("Custo: 0");
+        lblCardCustoF6.setFocusable(false);
+        lblCardCustoF6.setRequestFocusEnabled(false);
+
         javax.swing.GroupLayout pnCardF6Layout = new javax.swing.GroupLayout(pnCardF6);
         pnCardF6.setLayout(pnCardF6Layout);
         pnCardF6Layout.setHorizontalGroup(
@@ -382,7 +430,8 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(pnCardF6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCardNameF6, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(lblCardDescF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCardDescF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardCustoF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnCardF6Layout.setVerticalGroup(
@@ -392,7 +441,9 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addComponent(lblCardNameF6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCardDescF6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCardCustoF6)
+                .addContainerGap())
         );
 
         pnCardF2.setBackground(new java.awt.Color(142, 68, 173));
@@ -408,6 +459,12 @@ public class BattlefieldView extends javax.swing.JDialog {
         lblCardNameF2.setFocusable(false);
         lblCardNameF2.setRequestFocusEnabled(false);
 
+        lblCardCustoF2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        lblCardCustoF2.setForeground(new java.awt.Color(255, 255, 255));
+        lblCardCustoF2.setText("Custo: 0");
+        lblCardCustoF2.setFocusable(false);
+        lblCardCustoF2.setRequestFocusEnabled(false);
+
         lblCardDescF2.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         lblCardDescF2.setForeground(new java.awt.Color(255, 255, 255));
         lblCardDescF2.setText("Descrição");
@@ -420,11 +477,12 @@ public class BattlefieldView extends javax.swing.JDialog {
         pnCardF2.setLayout(pnCardF2Layout);
         pnCardF2Layout.setHorizontalGroup(
             pnCardF2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnCardF2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCardF2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnCardF2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCardNameF2, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(lblCardDescF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnCardF2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCardCustoF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCardNameF2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(lblCardDescF2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnCardF2Layout.setVerticalGroup(
@@ -434,7 +492,9 @@ public class BattlefieldView extends javax.swing.JDialog {
                 .addComponent(lblCardNameF2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCardDescF2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCardCustoF2)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout playerHandLayout = new javax.swing.GroupLayout(playerHand);
@@ -640,6 +700,7 @@ public class BattlefieldView extends javax.swing.JDialog {
             if (battlefield.hasFieldSelected()) {
                 if (battlefield.getSelectedField().getCarta().getCusto() <= battlefield.getPlayer().getMana()) {
                     battlefield.Attack(false);
+                    ClearFields();
                 } else {
                     JOptionPane.showMessageDialog(null, "Você não tem mana suficiente para utilizar esta carta! Custo: " + battlefield.getSelectedField().getCarta().getCusto() + ".");
                 }
@@ -655,6 +716,12 @@ public class BattlefieldView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCardCustoF1;
+    private javax.swing.JLabel lblCardCustoF2;
+    private javax.swing.JLabel lblCardCustoF3;
+    private javax.swing.JLabel lblCardCustoF4;
+    private javax.swing.JLabel lblCardCustoF5;
+    private javax.swing.JLabel lblCardCustoF6;
     private javax.swing.JLabel lblCardDescF1;
     private javax.swing.JLabel lblCardDescF2;
     private javax.swing.JLabel lblCardDescF3;
@@ -708,12 +775,12 @@ public class BattlefieldView extends javax.swing.JDialog {
 
     private void LoadFields() {
         fields.clear();
-        fields.add(new CardField(lblCardNameF1, lblCardDescF1, pnCardF1));
-        fields.add(new CardField(lblCardNameF2, lblCardDescF2, pnCardF2));
-        fields.add(new CardField(lblCardNameF3, lblCardDescF3, pnCardF3));
-        fields.add(new CardField(lblCardNameF4, lblCardDescF4, pnCardF4));
-        fields.add(new CardField(lblCardNameF5, lblCardDescF5, pnCardF5));
-        fields.add(new CardField(lblCardNameF6, lblCardDescF6, pnCardF6));
+        fields.add(new CardField(lblCardNameF1, lblCardDescF1, pnCardF1, lblCardCustoF1));
+        fields.add(new CardField(lblCardNameF2, lblCardDescF2, pnCardF2, lblCardCustoF2));
+        fields.add(new CardField(lblCardNameF3, lblCardDescF3, pnCardF3, lblCardCustoF3));
+        fields.add(new CardField(lblCardNameF4, lblCardDescF4, pnCardF4, lblCardCustoF4));
+        fields.add(new CardField(lblCardNameF5, lblCardDescF5, pnCardF5, lblCardCustoF5));
+        fields.add(new CardField(lblCardNameF6, lblCardDescF6, pnCardF6, lblCardCustoF6));
     }
 
     public void ClearFields() {

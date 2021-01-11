@@ -26,7 +26,6 @@ public class MenuView extends javax.swing.JFrame {
         SaveController save = new SaveController();
         storage = save.Load();
         
-
         cardLayout = (CardLayout) (cards.getLayout());
 
         card = new CardView(storage);
@@ -62,6 +61,7 @@ public class MenuView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(112, 128, 144));
+        setResizable(false);
 
         cards.setLayout(new java.awt.CardLayout());
 
@@ -151,7 +151,7 @@ public class MenuView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

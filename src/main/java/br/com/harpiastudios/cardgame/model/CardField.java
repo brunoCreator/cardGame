@@ -6,6 +6,7 @@
 package br.com.harpiastudios.cardgame.model;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -18,24 +19,36 @@ public class CardField {
 
     private JLabel nome;
     private JLabel descricao;
+    private JLabel custo;
     private JPanel content;
     private boolean selected = false;
 
     private Card carta;
 
-    public CardField(JLabel nome, JLabel descricao, JPanel content) {
+    public CardField(JLabel nome, JLabel descricao, JPanel content, JLabel custo) {
         this.nome = nome;
         this.descricao = descricao;
         this.content = content;
+        this.custo = custo;
         Update();
     }
 
     public void Update() {
         if (carta != null) {
-            nome.setText(carta.getNome());
-            descricao.setText(carta.getDescricao());
+            nome.setText(carta.getNome().toUpperCase());
+            descricao.setText("<html>" + carta.getDescricao() + "</html>");
+            int maxWidth = 145;
+            Dimension size = descricao.getPreferredSize();
+            if (size.width > maxWidth) {
+                int lineCount = (int) Math.ceil(((double) size.width) / maxWidth);
+                lineCount += 1;
+                size.width = maxWidth;
+                size.height *= lineCount;
+                descricao.setPreferredSize(size);
+            }
+            custo.setText("Custo: " + carta.getCusto());
             setEnabled(true);
-        }else{
+        } else {
             setEnabled(false);
         }
     }

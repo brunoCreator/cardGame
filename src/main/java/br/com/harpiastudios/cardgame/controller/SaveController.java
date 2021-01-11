@@ -40,7 +40,6 @@ public class SaveController {
         Storage storage;
         try {
             String json = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
-            System.out.println(json);
             TypeToken<Storage> token = new TypeToken<Storage>() {
             };
             storage = new Gson().fromJson(json, token.getType());

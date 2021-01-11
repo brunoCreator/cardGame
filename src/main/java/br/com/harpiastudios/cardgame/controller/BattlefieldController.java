@@ -15,6 +15,7 @@ import br.com.harpiastudios.cardgame.model.Enemy;
 import br.com.harpiastudios.cardgame.model.Player;
 import br.com.harpiastudios.cardgame.view.BattlefieldView;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,26 +56,89 @@ public class BattlefieldController {
     public void SkipTurn() {
         String log = view.getTaLog().getText();
         if (turn == TurnEnum.PLAYER) {
-            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O jogador pulou o turno.");
+            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O jogador passou o turno.");
             turn = TurnEnum.ENEMY;
             IncreaseTurn();
+            Buy(true);
             EnemyAttack();
         } else {
-            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O inimigo pulou o turno.");
+            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O inimigo passou o turno.");
             turn = TurnEnum.PLAYER;
             IncreaseTurn();
+            Buy(false);
+            int index = 0;
+            fields.forEach(f -> {
+                f.setEnabled(false);
+            });
+            for (Card c : player.getHand()) {
+                fields.get(index).setCarta(c);
+                fields.get(index).Update();
+                index++;
+            }
         }
     }
 
     private void EnemyAttack() {
         try {
-            Thread.sleep(1000);
-            Attack(true);
-            turn = TurnEnum.PLAYER;
-            IncreaseTurn();
+            ArrayList<Card> hand = enemy.getHand();
+            Collections.shuffle(hand);
+            for (int j = 0; j < hand.size(); j++) {
+                Thread.sleep(500);
+                Card card = hand.get(j);
+                String log = view.getTaLog().getText();
+                if (enemy.getMana() >= card.getCusto()) {
+                    view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O inimigo usou/atacou: " + card.getNome().toUpperCase() + ".");
+                    enemy.decreaseMana(card.getCusto());
+                    for (Effect effect : card.getEfeito()) {
+                        if (!effect.isAlvo()) {
+                            int mana = ApplyEffect(effect.getMana(), player.getMana(), TargetEnum.PLAYER);
+                            System.out.println("Mana: " + mana);
+                            player.setMana(mana);
+                            int vida = ApplyEffect(effect.getVida(), player.getVida(), TargetEnum.PLAYER);
+                            System.out.println("Vida: " + mana);
+                            player.setVida(vida);
+                            player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
+                            int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER);
+                            if (player.getHand().size() > cartas) {
+                                for (int i = 0; i < cartas; i++) {
+                                    player.getCemitery().add(player.getFromHand());
+                                }
+                            } else {
+                                for (int i = 0; i < cartas; i++) {
+                                    if (player.getHand().size() + 1 < 6) {
+                                        player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size() - 1)));
+                                    }
+                                }
+                            }
+                        } else {
+                            enemy.setMana(ApplyEffect(effect.getMana(), enemy.getMana(), TargetEnum.ENEMY));
+                            enemy.setVida(ApplyEffect(effect.getVida(), enemy.getVida(), TargetEnum.ENEMY));
+                            enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
+                            int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY);
+                            if (enemy.getHand().size() > cartas) {
+                                for (int i = 0; i < cartas; i++) {
+                                    enemy.getCemitery().add(enemy.getFromHand());
+                                }
+                            } else {
+                                for (int i = 0; i < cartas; i++) {
+                                    if (enemy.getHand().size() + 1 < 6) {
+                                        int rand = enemy.getDeck().getCards().size() - 1;
+                                        if (rand > 0) {
+                                            enemy.getHand().add(enemy.getDeck().getCards().get(this.rand.nextInt(rand)));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    enemy.getHand().remove(card);
+                }
+            }
+            SkipTurn();
         } catch (InterruptedException ex) {
             Logger.getLogger(BattlefieldController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        VerifyWinner();
     }
 
     public CardField getSelectedField() {
@@ -113,6 +177,15 @@ public class BattlefieldController {
             Card card = player.getDeck().get();
             view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O jogador (você) comprou uma carta: " + card.getNome() + ".");
             player.getHand().add(card);
+            int index = 0;
+            fields.forEach(f -> {
+                f.setEnabled(false);
+            });
+            for (Card c : player.getHand()) {
+                fields.get(index).setCarta(c);
+                fields.get(index).Update();
+                index++;
+            }
         }
     }
 
@@ -120,17 +193,14 @@ public class BattlefieldController {
         String log = view.getTaLog().getText();
         if (!isEnemy) {
             Card card = getSelectedField().getCarta();
-            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O jogador atacou usando a carta: " + card.getNome() + ".");
-            player.getHand().remove(card);
+            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O jogador usou/atacou:  " + card.getNome().toUpperCase() + ".");
             getSelectedField().setCarta(null);
             player.decreaseMana(card.getCusto());
             for (Effect effect : card.getEfeito()) {
                 if (effect.isAlvo()) {
                     int mana = ApplyEffect(effect.getMana(), player.getMana(), TargetEnum.PLAYER);
-                    System.out.println("Mana: " + mana);
                     player.setMana(mana);
                     int vida = ApplyEffect(effect.getVida(), player.getVida(), TargetEnum.PLAYER);
-                    System.out.println("Vida: " + mana);
                     player.setVida(vida);
                     player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
                     int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER);
@@ -163,56 +233,7 @@ public class BattlefieldController {
                     }
                 }
             }
-            turn = TurnEnum.PLAYER;
-            IncreaseTurn();
-            EnemyAttack();
-        } else {
-            Card card = enemy.getRandomFromHand();
-            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " |" + " O inimigo atacou usando a carta: " + card.getNome() + ".");
-            enemy.getHand().remove(card);
-            enemy.decreaseMana(card.getCusto());
-            for (Effect effect : card.getEfeito()) {
-                if (!effect.isAlvo()) {
-                    int mana = ApplyEffect(effect.getMana(), player.getMana(), TargetEnum.PLAYER);
-                    System.out.println("Mana: " + mana);
-                    player.setMana(mana);
-                    int vida = ApplyEffect(effect.getVida(), player.getVida(), TargetEnum.PLAYER);
-                    System.out.println("Vida: " + mana);
-                    player.setVida(vida);
-                    player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
-                    int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER);
-                    if (player.getHand().size() > cartas) {
-                        for (int i = 0; i < cartas; i++) {
-                            player.getCemitery().add(player.getFromHand());
-                        }
-                    } else {
-                        for (int i = 0; i < cartas; i++) {
-                            if (player.getHand().size() + 1 < 6) {
-                                player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size() - 1)));
-                            }
-                        }
-                    }
-                } else {
-                    enemy.setMana(ApplyEffect(effect.getMana(), enemy.getMana(), TargetEnum.ENEMY));
-                    enemy.setVida(ApplyEffect(effect.getVida(), enemy.getVida(), TargetEnum.ENEMY));
-                    enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
-                    int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY);
-                    if (enemy.getHand().size() > cartas) {
-                        for (int i = 0; i < cartas; i++) {
-                            enemy.getCemitery().add(enemy.getFromHand());
-                        }
-                    } else {
-                        for (int i = 0; i < cartas; i++) {
-                            if (enemy.getHand().size() + 1 < 6) {
-                                int rand = enemy.getDeck().getCards().size() - 1;
-                                if (rand > 0) {
-                                    enemy.getHand().add(enemy.getDeck().getCards().get(this.rand.nextInt(rand)));
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            player.getHand().remove(card);
         }
         int index = 0;
         fields.forEach(f -> {
@@ -223,17 +244,25 @@ public class BattlefieldController {
             fields.get(index).Update();
             index++;
         }
-        if(enemy.getVida() <= 0 && player.getVida() > 0) {
+        view.Update();
+        VerifyWinner();
+    }
+
+    private void VerifyWinner() {
+        String log = view.getTaLog().getText();
+        if (enemy.getVida() <= 0 && player.getVida() > 0) {
+            view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " | " + "Parabéns, você venceu a partida!");
             JOptionPane.showMessageDialog(null, "Parabéns, você venceu a partida!");
             view.dispose();
-        }else if(enemy.getVida() > 0 && player.getVida() <= 0){
+        } else if (enemy.getVida() > 0 && player.getVida() <= 0) {
+            view.getTaLog().setText(log + "\n " + "Turno: " + String.valueOf(turnCount) + " | " + "Que falta de sorte hein! Você perdeu esta partida.");
             JOptionPane.showMessageDialog(null, "Que falta de sorte hein! Você perdeu esta partida.");
             view.dispose();
-        }else if(enemy.getVida() <= 0 && player.getVida() <= 0){
+        } else if (enemy.getVida() <= 0 && player.getVida() <= 0) {
+            view.getTaLog().setText(log + "\n " + "Turno: " + String.valueOf(turnCount) + " | " + "Ops. Parece que houve um empate!");
             JOptionPane.showMessageDialog(null, "Ops. Parece que houve um empate!");
             view.dispose();
         }
-        view.Update();
     }
 
     public int ApplyEffect(String input, float total, TargetEnum target) {
