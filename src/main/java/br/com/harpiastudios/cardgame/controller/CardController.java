@@ -21,14 +21,14 @@ public class CardController {
     public CardController(ArrayList<Card> cards) {
         this.cards = cards;
     }
-    
+
     public boolean cadastrar(String nome, String descricao, String custo, String vidap, String manap, String defesap, String cartasp, String vidai, String manai, String defesai, String cartasi) {
         if (!nome.isEmpty() && !descricao.isEmpty() && !custo.isEmpty() && !vidap.isEmpty() && !manap.isEmpty() && !defesap.isEmpty() && !cartasp.isEmpty()
                 && !vidai.isEmpty() && !manai.isEmpty() && !defesai.isEmpty() && !cartasi.isEmpty()) {
             try {
                 Effect[] effects = new Effect[]{
-                    new Effect(true, vidap, manap, defesap, cartasp),
-                    new Effect(false, vidai, manai, defesai, cartasi)
+                    new Effect(true, vidap, manap, cartasp, defesap),
+                    new Effect(false, vidai, manai, cartasi, defesai)
                 };
                 return cards.add(new Card(cards.size(), nome, descricao, Integer.parseInt(custo), effects));
             } catch (Exception e) {
@@ -49,8 +49,8 @@ public class CardController {
                     card.setDescricao(descricao);
                     card.setCusto(Integer.parseInt(custo));
                     Effect[] effects = new Effect[]{
-                        new Effect(true, vidap, manap, defesap, cartasp),
-                        new Effect(false, vidai, manai, defesai, cartasi)
+                        new Effect(true, vidap, manap, cartasp, defesap),
+                        new Effect(false, vidai, manai, cartasi, defesai)
                     };
                     card.setEfeito(effects);
                     return true;
@@ -66,18 +66,18 @@ public class CardController {
     }
 
     public boolean excluir() {
-        if(cards.size() > 0) {
-            if(selected != -1) {
+        if (cards.size() > 0) {
+            if (selected != -1) {
                 cards.remove(selected);
                 selected = -1;
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
         return false;
     }
-    
+
     public void Navigate(boolean increase) {
         if (increase) {
             if (cards.size() - 1 > 0 && selected > 0) {
@@ -101,11 +101,11 @@ public class CardController {
     public void setSelected(int selected) {
         this.selected = selected;
     }
-    
+
     public Card getSelected() {
         return cards.get(selected);
     }
-    
+
     public ArrayList<Card> getCards() {
         return cards;
     }

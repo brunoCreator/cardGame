@@ -698,11 +698,13 @@ public class BattlefieldView extends javax.swing.JDialog {
     private void pnEnemyMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnEnemyMouseReleased
         if (battlefield.getTurn() == TurnEnum.PLAYER) {
             if (battlefield.hasFieldSelected()) {
-                if (battlefield.getSelectedField().getCarta().getCusto() <= battlefield.getPlayer().getMana()) {
-                    battlefield.Attack(false);
-                    ClearFields();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Você não tem mana suficiente para utilizar esta carta! Custo: " + battlefield.getSelectedField().getCarta().getCusto() + ".");
+                if (battlefield.getSelectedField().getCarta() != null) {
+                    if (battlefield.getSelectedField().getCarta().getCusto() <= battlefield.getPlayer().getMana()) {
+                        battlefield.Attack(false);
+                        ClearFields();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Você não tem mana suficiente para utilizar esta carta! Custo: " + battlefield.getSelectedField().getCarta().getCusto() + ".");
+                    }
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Selecione uma carta antes de realizar um ataque.");

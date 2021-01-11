@@ -26,6 +26,7 @@ import javax.swing.JOptionPane;
  * @author Diego
  */
 public class BattlefieldController {
+
     private final BattlefieldView view;
     private TurnEnum turn = TurnEnum.PLAYER;
     private int turnCount = 0;
@@ -43,12 +44,12 @@ public class BattlefieldController {
     }
 
     public void IncreaseTurn() {
-        enemy.increaseMana((int)((1 * (turnCount + 1)) / 2));
-        player.increaseMana((int)((1 * (turnCount + 1)) / 2));
+        enemy.setMana((int) ((2 * (turnCount + 1)) / 1.5));
+        player.setMana((int) ((2 * (turnCount + 1)) / 1.5));
         turnCount++;
         view.Update();
     }
-    
+
     public void SkipTurn() {
         String log = view.getTaLog().getText();
         if (turn == TurnEnum.PLAYER) {
@@ -142,7 +143,11 @@ public class BattlefieldController {
                     } else {
                         for (int i = 0; i < cartas; i++) {
                             if (player.getHand().size() + 1 < 6) {
-                                player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size())));
+                                int pos = rand.nextInt(player.getDeck().getCards().size());
+                                if (pos > -1) {
+                                    player.getHand().add(player.getDeck().getCards().get(pos));
+                                    player.getDeck().getCards().remove(pos);
+                                }
                             }
                         }
                     }
@@ -151,7 +156,6 @@ public class BattlefieldController {
                     enemy.setVida(ApplyEffect(effect.getVida(), enemy.getVida(), TargetEnum.ENEMY));
                     enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
                     int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY);
-                    System.out.println("Attack: Quantidade de cartas: " + cartas);
                     if (enemy.getHand().size() > cartas) {
                         for (int i = 0; i < cartas; i++) {
                             enemy.getCemitery().add(enemy.getFromHand());
@@ -159,7 +163,11 @@ public class BattlefieldController {
                     } else {
                         for (int i = 0; i < cartas; i++) {
                             if (enemy.getHand().size() + 1 < 6) {
-                                enemy.getHand().add(enemy.getDeck().getCards().get(rand.nextInt(enemy.getDeck().getCards().size())));
+                                int pos = rand.nextInt(enemy.getDeck().getCards().size());
+                                if (pos > -1) {
+                                    enemy.getHand().add(enemy.getDeck().getCards().get(pos));
+                                    enemy.getDeck().getCards().remove(pos);
+                                }
                             }
                         }
                     }
@@ -171,13 +179,13 @@ public class BattlefieldController {
         view.Update();
         VerifyWinner();
     }
-    
+
     private void EnemyAttack() {
         try {
             ArrayList<Card> hand = enemy.getHand();
             Collections.shuffle(hand);
             for (int j = 0; j < hand.size(); j++) {
-                Thread.sleep((int)350*j);
+                Thread.sleep((int) 350 * j);
                 Card card = hand.get(j);
                 String log = view.getTaLog().getText();
                 if (enemy.getMana() >= card.getCusto()) {
@@ -201,7 +209,11 @@ public class BattlefieldController {
                             } else {
                                 for (int i = 0; i < cartas; i++) {
                                     if (player.getHand().size() + 1 < 6) {
-                                        player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size())));
+                                        int pos = rand.nextInt(player.getDeck().getCards().size());
+                                        if (pos > -1) {
+                                            player.getHand().add(player.getDeck().getCards().get(pos));
+                                            player.getDeck().getCards().remove(pos);
+                                        }
                                     }
                                 }
                             }
@@ -219,9 +231,10 @@ public class BattlefieldController {
                             } else {
                                 for (int i = 0; i < cartas; i++) {
                                     if (enemy.getHand().size() + 1 < 6) {
-                                        int rand = enemy.getDeck().getCards().size() - 1;
-                                        if (rand > 0) {
-                                            enemy.getHand().add(enemy.getDeck().getCards().get(this.rand.nextInt(rand)));
+                                        int pos = rand.nextInt(enemy.getDeck().getCards().size());
+                                        if (pos > -1) {
+                                            enemy.getHand().add(enemy.getDeck().getCards().get(pos));
+                                            enemy.getDeck().getCards().remove(pos);
                                         }
                                     }
                                 }
@@ -238,7 +251,7 @@ public class BattlefieldController {
         }
         VerifyWinner();
     }
-    
+
     public int ApplyEffect(String input, float total, TargetEnum target) {
         String[] items;
         int num = 0;
@@ -318,7 +331,7 @@ public class BattlefieldController {
         }
         return (int) total;
     }
-    
+
     public void UpdatePlayerHand() {
         int index = 0;
         fields.forEach(f -> {
@@ -331,8 +344,15 @@ public class BattlefieldController {
         }
     }
 
+    private int danoIfNotHasLife = 1;
+
     public void VerifyWinner() {
         String log = view.getTaLog().getText();
+        if (enemy.getCardsCount() <= 0) {
+            enemy.decreaseVida(danoIfNotHasLife);
+            danoIfNotHasLife++;
+            view.Update();
+        }
         if (enemy.getVida() <= 0 && player.getVida() > 0) {
             view.getTaLog().setText(log + "\n" + "Turno: " + String.valueOf(turnCount) + " | " + "Parabéns, você venceu a partida!");
             JOptionPane.showMessageDialog(null, "Parabéns, você venceu a partida!");

@@ -413,6 +413,7 @@ public class CardView extends javax.swing.JPanel {
             boolean result = controller.cadastrar(tfNome.getText(), tfDescricao.getText(), tfCusto.getText(), tfVidaP.getText(), tfManaP.getText(), tfDefesaP.getText(), tfCartasP.getText(), tfVidaI.getText(), tfManaI.getText(), tfDefesaI.getText(), tfCartasI.getText());
             if (result) {
                 JOptionPane.showMessageDialog(null, "O cadastro da carta foi realizada com sucesso");
+                storage.Save();
             } else {
                 JOptionPane.showMessageDialog(null, "Certifique-se de que todos os campos estejam preenchidos para continuar.");
             }
@@ -420,6 +421,7 @@ public class CardView extends javax.swing.JPanel {
             boolean result = controller.alterar(tfNome.getText(), tfDescricao.getText(), tfCusto.getText(), tfVidaP.getText(), tfManaP.getText(), tfDefesaP.getText(), tfCartasP.getText(), tfVidaI.getText(), tfManaI.getText(), tfDefesaI.getText(), tfCartasI.getText());
             if (result) {
                 JOptionPane.showMessageDialog(null, "A alteração dos dados da carta foi realizado com sucesso");
+                storage.Save();
             } else {
                 JOptionPane.showMessageDialog(null, "Certifique-se de que todos os campos estejam preenchidos para continuar.");
             }
@@ -449,6 +451,7 @@ public class CardView extends javax.swing.JPanel {
         if (controller.excluir()) {
             JOptionPane.showMessageDialog(null, "A carta foi excluida com sucesso!");
             limpar();
+            storage.Save();
         } else {
             JOptionPane.showMessageDialog(null, "Certifique-se de que exista uma carta cadastrada ou selecionada para prosseguir.");
         }
