@@ -18,9 +18,7 @@ public class Storage {
     ArrayList<Deck> decks = new  ArrayList<>();
 
     public Storage() {
-        SaveController save = new SaveController();
         usuario = new User("John", "admin", "admin");
-        save.Load(this);
     }
 
     public ArrayList<Card> getCards() {

@@ -36,18 +36,25 @@ public class SaveController {
         }
     }
 
-    public void Load(Storage storage) {
+    public Storage Load() {
+        Storage storage;
         try {
             String json = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
             System.out.println(json);
             TypeToken<Storage> token = new TypeToken<Storage>() {
             };
             storage = new Gson().fromJson(json, token.getType());
-            System.out.println("Foram carregados " + storage.getCards().size() + " cartas..");
+            if (storage != null) {
+                System.out.println("Foram carregados " + storage.getDecks().size() + " de decks..");
+                System.out.println("Foram carregados " + storage.getCards().size() + " cartas..");
+            } else {
+                storage = new Storage();
+            }
         } catch (IOException e) {
-            System.out.println("Erro ao carregar o armazem: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("Erro ao carregar o estoque: " + e.getMessage());
+            storage = new Storage();
         }
+        return storage;
     }
 
     public void Save(Storage storage) {

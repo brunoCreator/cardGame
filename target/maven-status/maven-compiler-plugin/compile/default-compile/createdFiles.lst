@@ -43,6 +43,7 @@ br\com\harpiastudios\cardgame\enumerator\TargetEnum.class
 br\com\harpiastudios\cardgame\view\DeckView$6.class
 br\com\harpiastudios\cardgame\view\LoginView$2.class
 br\com\harpiastudios\cardgame\model\Battlefield.class
+br\com\harpiastudios\cardgame\controller\SaveController.class
 br\com\harpiastudios\cardgame\model\Deck.class
 br\com\harpiastudios\cardgame\view\CardView$4.class
 br\com\harpiastudios\cardgame\view\DeckView$4.class
@@ -57,5 +58,6 @@ br\com\harpiastudios\cardgame\enumerator\DifficultyEnum.class
 br\com\harpiastudios\cardgame\view\LoginView$1.class
 br\com\harpiastudios\cardgame\view\DeckView$7.class
 br\com\harpiastudios\cardgame\view\CardView$8.class
+br\com\harpiastudios\cardgame\controller\SaveController$1.class
 br\com\harpiastudios\cardgame\view\BattlefieldView$1.class
 br\com\harpiastudios\cardgame\Main.class
