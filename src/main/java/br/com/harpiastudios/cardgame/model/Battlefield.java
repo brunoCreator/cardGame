@@ -224,7 +224,7 @@ public class Battlefield {
         }else if(enemy.getVida() > 0 && player.getVida() <= 0){
             JOptionPane.showMessageDialog(null, "Que falta de sorte hein! Você perdeu esta partida.");
             view.dispose();
-        }else{
+        }else if(enemy.getVida() <= 0 && player.getVida() <= 0){
             JOptionPane.showMessageDialog(null, "Ops. Parece que houve um empate!");
             view.dispose();
         }
