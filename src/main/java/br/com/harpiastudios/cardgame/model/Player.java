@@ -102,7 +102,7 @@ public class Player {
     
     private Random rand = new Random();
     public Card getRandomFromHand() {
-        Card res = hand.get(rand.nextInt(hand.size()-1));
+        Card res = hand.get(rand.nextInt(hand.size()));
         hand.remove(res);
         return res;
     }

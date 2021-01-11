@@ -83,7 +83,7 @@ public class BattlefieldController {
             ArrayList<Card> hand = enemy.getHand();
             Collections.shuffle(hand);
             for (int j = 0; j < hand.size(); j++) {
-                Thread.sleep(500);
+                Thread.sleep((int)350*j);
                 Card card = hand.get(j);
                 String log = view.getTaLog().getText();
                 if (enemy.getMana() >= card.getCusto()) {
@@ -99,6 +99,7 @@ public class BattlefieldController {
                             player.setVida(vida);
                             player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
                             int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER);
+                            System.out.println("Quantidade de cartas: " + cartas);
                             if (player.getHand().size() > cartas) {
                                 for (int i = 0; i < cartas; i++) {
                                     player.getCemitery().add(player.getFromHand());
@@ -106,15 +107,17 @@ public class BattlefieldController {
                             } else {
                                 for (int i = 0; i < cartas; i++) {
                                     if (player.getHand().size() + 1 < 6) {
-                                        player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size() - 1)));
+                                        player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size())));
                                     }
                                 }
                             }
+                            UpdatePlayerHand();
                         } else {
                             enemy.setMana(ApplyEffect(effect.getMana(), enemy.getMana(), TargetEnum.ENEMY));
                             enemy.setVida(ApplyEffect(effect.getVida(), enemy.getVida(), TargetEnum.ENEMY));
                             enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
                             int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY);
+                            System.out.println("Quantidade de cartas: " + cartas);
                             if (enemy.getHand().size() > cartas) {
                                 for (int i = 0; i < cartas; i++) {
                                     enemy.getCemitery().add(enemy.getFromHand());
@@ -129,6 +132,7 @@ public class BattlefieldController {
                                     }
                                 }
                             }
+                            UpdatePlayerHand();
                         }
                     }
                     enemy.getHand().remove(card);
@@ -204,6 +208,7 @@ public class BattlefieldController {
                     player.setVida(vida);
                     player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
                     int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER);
+                    System.out.println("Attack: Quantidade de cartas: " + cartas);
                     if (player.getHand().size() > cartas) {
                         for (int i = 0; i < cartas; i++) {
                             player.getCemitery().add(player.getFromHand());
@@ -211,7 +216,7 @@ public class BattlefieldController {
                     } else {
                         for (int i = 0; i < cartas; i++) {
                             if (player.getHand().size() + 1 < 6) {
-                                player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size() - 1)));
+                                player.getHand().add(player.getDeck().getCards().get(rand.nextInt(player.getDeck().getCards().size())));
                             }
                         }
                     }
@@ -220,6 +225,7 @@ public class BattlefieldController {
                     enemy.setVida(ApplyEffect(effect.getVida(), enemy.getVida(), TargetEnum.ENEMY));
                     enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
                     int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY);
+                    System.out.println("Attack: Quantidade de cartas: " + cartas);
                     if (enemy.getHand().size() > cartas) {
                         for (int i = 0; i < cartas; i++) {
                             enemy.getCemitery().add(enemy.getFromHand());
@@ -227,7 +233,7 @@ public class BattlefieldController {
                     } else {
                         for (int i = 0; i < cartas; i++) {
                             if (enemy.getHand().size() + 1 < 6) {
-                                enemy.getHand().add(enemy.getDeck().getCards().get(rand.nextInt(enemy.getDeck().getCards().size() - 1)));
+                                enemy.getHand().add(enemy.getDeck().getCards().get(rand.nextInt(enemy.getDeck().getCards().size())));
                             }
                         }
                     }
@@ -235,6 +241,12 @@ public class BattlefieldController {
             }
             player.getHand().remove(card);
         }
+        UpdatePlayerHand();
+        view.Update();
+        VerifyWinner();
+    }
+
+    private void UpdatePlayerHand() {
         int index = 0;
         fields.forEach(f -> {
             f.setEnabled(false);
@@ -244,8 +256,6 @@ public class BattlefieldController {
             fields.get(index).Update();
             index++;
         }
-        view.Update();
-        VerifyWinner();
     }
 
     private void VerifyWinner() {
