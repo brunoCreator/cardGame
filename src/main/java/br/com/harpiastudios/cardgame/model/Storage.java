@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class Storage {
     private User usuario;
-    ArrayList<Card> cards = new  ArrayList<>();
-    ArrayList<Deck> decks = new  ArrayList<>();
+    private ArrayList<Card> cards = new  ArrayList<>();
+    private ArrayList<Deck> decks = new  ArrayList<>();
 
     public Storage() {
         usuario = new User("John", "admin", "admin");

@@ -25,8 +25,6 @@ public class CardView extends javax.swing.JPanel {
         controller = new CardController(storage.getCards());
     }
 
-    int selec = 0;
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

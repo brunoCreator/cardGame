@@ -13,11 +13,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DeckView extends javax.swing.JPanel {
 
-    DefaultTableModel modelo;
-    DefaultTableModel selec;
-    ArrayList<Deck> decks;
-    ArrayList<Card> cards;
-    Storage storage;
+    private DefaultTableModel modelo;
+    private DefaultTableModel selec;
+    private ArrayList<Deck> decks;
+    private ArrayList<Card> cards;
+    private Storage storage;
 
     public DeckView(Storage storage) {
         initComponents();
@@ -278,8 +278,8 @@ public class DeckView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    int row = -1, contador = 0;
-    boolean select = false;
+    private int row = -1, contador = 0;
+    private boolean select = false;
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int id = (int) modelo.getValueAt(jTable1.rowAtPoint(evt.getPoint()), 0);

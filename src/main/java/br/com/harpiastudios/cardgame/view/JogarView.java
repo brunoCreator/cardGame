@@ -15,10 +15,7 @@ import javax.swing.JOptionPane;
  * @author rotch
  */
 public class JogarView extends javax.swing.JPanel {
-
-    BattlefieldView fild;
-    Storage storage;
-
+    private final Storage storage;
     public JogarView(Storage storage) {
         initComponents();
         this.storage = storage;
