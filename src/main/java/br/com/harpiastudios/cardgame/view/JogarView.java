@@ -8,6 +8,7 @@ package br.com.harpiastudios.cardgame.view;
 import br.com.harpiastudios.cardgame.model.Box;
 import br.com.harpiastudios.cardgame.model.Deck;
 import br.com.harpiastudios.cardgame.model.Storage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +18,7 @@ public class JogarView extends javax.swing.JPanel {
 
     BattlefieldView fild;
     Storage storage;
+
     public JogarView(Storage storage) {
         initComponents();
         this.storage = storage;
@@ -163,7 +165,7 @@ public class JogarView extends javax.swing.JPanel {
         cbPlayerDeck.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
 
-    public void Update(){
+    public void Update() {
         cbPlayerDeck.removeAllItems();
         for (Deck s : storage.getDecks()) {
             cbPlayerDeck.addItem(new Box((int) s.getId(), s.getNome()));
@@ -173,24 +175,27 @@ public class JogarView extends javax.swing.JPanel {
             cbEnemyDeck.addItem(new Box((int) s.getId(), s.getNome()));
         }
     }
-    
+
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Box playerDeck = (Box) cbPlayerDeck.getSelectedItem();
-        Box enemyDeck = (Box) cbEnemyDeck.getSelectedItem();
-        
-        String df = cbDifficulty.getSelectedItem().toString();
-        Deck[] ds = {
-            storage.getDecks().get(playerDeck.getKey()),
-            storage.getDecks().get(enemyDeck.getKey())
-        };
-        
-        BattlefieldView view = new BattlefieldView(null, true, ds, df, storage.getUsuario());
-        view.setVisible(true);
-        System.out.println(playerDeck.getKey());
+        try {
+            Box playerDeck = (Box) cbPlayerDeck.getSelectedItem();
+            Box enemyDeck = (Box) cbEnemyDeck.getSelectedItem();
+
+            String df = cbDifficulty.getSelectedItem().toString();
+            Deck[] ds = {
+                storage.getDecks().get(playerDeck.getKey()),
+                storage.getDecks().get(enemyDeck.getKey())
+            };
+
+            BattlefieldView view = new BattlefieldView(null, true, ds, df, storage.getUsuario());
+            view.setVisible(true);
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Verifique se todos os campos estão corretos.");
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void cbDifficultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDifficultyActionPerformed
