@@ -229,65 +229,88 @@ public class Battlefield {
         }
         view.Update();
     }
-
-    public int ApplyEffect(String input, float total, TargetEnum target) {
+        
+        public int ApplyEffect(String input, float total, TargetEnum target) {
         String[] items;
-
+        int num;
         items = input.split("((?<=([\\+\\-\\*\\^\\@\\#v]))|(?=([\\+\\-\\*\\^\\@\\#v])))");
-
-        /*
+        
         if(items[0].matches("\\d+([.]\\d+)*")){
-            total = Integer.parseInt(items[0]);
-        }*/
-        for (int i = 0; i < items.length; i++) {
-            if (items[i].equals("+")) {
-                if (i - 1 >= 0 && i + 1 <= items.length) {
-                    total += Float.parseFloat(items[i + 1]);
-                }
-            } else if (items[i].equals("-")) {
-                if (i - 1 >= 0 && i + 1 <= items.length) {
-                    total -= Float.parseFloat(items[i + 1]);
-                }
-            } else if (items[i].equals("*")) {
-                if (i - 1 >= 0 && i + 1 <= items.length) {
-                    total *= Float.parseFloat(items[i + 1]);
-                }
-            } else if (items[i].equals("v")) {//vida
-                if (i - 1 >= 0 && i + 1 <= items.length) {
+            total += Integer.parseInt(items[0]);
+        }else if (items[0].equals("v")) {//vida
                     if (target == TargetEnum.PLAYER) {
                         total += player.getVida();
                     } else {
                         total += enemy.getVida();
                     }
-                }
-            } else if (items[i].equals("^")) {//defesa
-                if (i - 1 >= 0 && i + 1 <= items.length) {
+            } else if (items[0].equals("^")) {//defesa
                     if (target == TargetEnum.PLAYER) {
                         total += player.getDefesa();
                     } else {
                         total += enemy.getDefesa();
                     }
-                }
-            } else if (items[i].equals("@")) {//mana
-                if (i - 1 >= 0 && i + 1 <= items.length) {
+            } else if (items[0].equals("@")) {//mana
                     if (target == TargetEnum.PLAYER) {
                         total += player.getMana();
                     } else {
                         total += enemy.getMana();
                     }
-                }
-            } else if (items[i].equals("#")) {//carta
-                if (i - 1 >= 0 && i + 1 <= items.length) {
+            } else if (items[0].equals("#")) {//carta
                     if (target == TargetEnum.PLAYER) {
-                        //total += cartas;
+                        total += player.getHand().size();
                     } else {
-                        //total += ecartas;
+                        total += enemy.getHand().size();
                     }
-                }
+            }
+
+        for (int i = 0; i < items.length; i++) {
+            num = -1;
+            if(i+1 < items.length){
+            if(items[i+1].matches("\\d+([.]\\d+)*")){
+                num = Integer.parseInt(items[i+1]);
+            }else if (items[0].equals("v")) {//vida
+                    if (target == TargetEnum.PLAYER) {
+                        total += player.getVida();
+                    } else {
+                        total += enemy.getVida();
+                    }
+            } else if (items[0].equals("^")) {//defesa
+                    if (target == TargetEnum.PLAYER) {
+                        total += player.getDefesa();
+                    } else {
+                        total += enemy.getDefesa();
+                    }
+            } else if (items[0].equals("@")) {//mana
+                    if (target == TargetEnum.PLAYER) {
+                        total += player.getMana();
+                    } else {
+                        total += enemy.getMana();
+                    }
+            } else if (items[0].equals("#")) {//carta
+                    if (target == TargetEnum.PLAYER) {
+                        total += player.getHand().size();
+                    } else {
+                        total += enemy.getHand().size();
+                    }
+            }
+            if(num != -1){
+            if(items[i].equals("+")){
+                total += num;
+            }else
+            if(items[i].equals("-")){
+                total -= num;
+            }else
+            if(items[i].equals("*")){
+                total *= num;
+            }else
+            if(items[i].equals("/")){
+                total /= num;
+            }}
             }
         }
-        return (int) total;
+        return (int)total;
     }
+    
 
     public String getBattlefieldTitle() {
         String result = "Modo: %mode | %player vs %enemy | Turno: %turn"
