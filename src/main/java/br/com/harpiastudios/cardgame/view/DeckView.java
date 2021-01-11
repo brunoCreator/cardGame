@@ -17,7 +17,8 @@ public class DeckView extends javax.swing.JPanel {
     DefaultTableModel selec;
     ArrayList<Deck> decks;
     ArrayList<Card> cards;
-   Storage storage;
+    Storage storage;
+
     public DeckView(Storage storage) {
         initComponents();
         this.storage = storage;
@@ -251,10 +252,10 @@ public class DeckView extends javax.swing.JPanel {
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +280,7 @@ public class DeckView extends javax.swing.JPanel {
 
     int row = -1, contador = 0;
     boolean select = false;
-    
+
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int id = (int) modelo.getValueAt(jTable1.rowAtPoint(evt.getPoint()), 0);
         Card s = cards.get(id);
@@ -290,13 +291,13 @@ public class DeckView extends javax.swing.JPanel {
                 has++;
             }
         }
-        if (has<3)
+        if (has < 3)
             selec.insertRow(selec.getRowCount(), new Object[]{id,
                 (String) s.getNome(),
                 (String) s.getDescricao()});
     }//GEN-LAST:event_jTable1MouseClicked
 
-    public void update(){
+    public void update() {
         modelo.setRowCount(0);
         for (int q = 0; q < cards.size(); q++) {
             Card s = cards.get(q);
@@ -306,22 +307,24 @@ public class DeckView extends javax.swing.JPanel {
         }
 
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (row >= 0) {
-            cards.remove(row);
+            decks.remove(row);
+            row = -1;
+            storage.Save();
         }
-        storage.Save();
         limpar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        if(!jTextField1.getText().equals("") && selec.getRowCount() > 0){
-        if (row >= 0 && decks.size() > 0) {
-            decks.set(row, new Deck(row,(String) jTextField1.getText(),getItens()));
-        } else {
-            decks.add(new Deck(decks.size(),(String) jTextField1.getText(),getItens()));
-        }}
+        if (!jTextField1.getText().equals("") && selec.getRowCount() > 0) {
+            if (row >= 0 && decks.size() > 0) {
+                decks.set(row, new Deck(row, (String) jTextField1.getText(), getItens()));
+            } else {
+                decks.add(new Deck(decks.size(), (String) jTextField1.getText(), getItens()));
+            }
+        }
         storage.Save();
         limpar();
     }//GEN-LAST:event_jToggleButton4ActionPerformed
@@ -361,46 +364,47 @@ public class DeckView extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    void preencher(){        
-        Deck ag = decks.get(row);
-        jTextField1.setText((String)ag.getNome());
-        
-        selec.setRowCount(0);
- 
+    void preencher() {
+        if (row != -1) {
+            Deck ag = decks.get(row);
+            jTextField1.setText((String) ag.getNome());
+
+            selec.setRowCount(0);
+
             for (int q = 0; q < ag.getCards().size(); q++) {
-            Card s = ag.getCards().get(q);
-            selec.insertRow(selec.getRowCount(), new Object[]{q,
-                (String) s.getNome(),
-                (String) s.getDescricao()});
-        
+                Card s = ag.getCards().get(q);
+                selec.insertRow(selec.getRowCount(), new Object[]{q,
+                    (String) s.getNome(),
+                    (String) s.getDescricao()});
+
+            }
+            select = true;
         }
-        select = true;
     }
-    
-    
+
     ArrayList<Card> getItens() {
         ArrayList<Card> newProff = new ArrayList();
         for (int i = 0; i < selec.getRowCount(); i++) {
-            newProff.add(cards.get((int)selec.getValueAt(i, 0)));
+            newProff.add(cards.get((int) selec.getValueAt(i, 0)));
         }
         return newProff;
     }
-    
+
     void limpar() {
         selec.setRowCount(0);
         jTextField1.setText("");
         select = false;
         make();
     }
-    
-    void make(){
+
+    void make() {
         jToggleButton4.setText("Criar");
     }
-    
-    void change(){
+
+    void change() {
         jToggleButton4.setText("Alterar");
     }
-    
+
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed

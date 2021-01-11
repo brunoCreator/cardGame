@@ -27,8 +27,6 @@ public class SaveController {
             file = new File("./data.json");
             if (file.createNewFile()) {
                 System.out.println("Arquivo criado com successo.");
-            } else {
-                System.out.println("Carregando todos os dados cadastrados anteriormente..");
             }
         } catch (IOException e) {
             System.out.println("Um erro ocorreu ao criar o arquivo para salvar os registros...");
@@ -58,7 +56,6 @@ public class SaveController {
 
     public void Save(Storage storage) {
         String output = new Gson().toJson(storage);
-        System.out.println(output);
         try {
             FileWriter file = new FileWriter("./data.json", StandardCharsets.UTF_8);
             file.write(output);
