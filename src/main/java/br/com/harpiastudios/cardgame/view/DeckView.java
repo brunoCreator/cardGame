@@ -291,6 +291,7 @@ public class DeckView extends javax.swing.JPanel {
         if (row >= 0) {
             cards.remove(row);
         }
+        storage.Save();
         limpar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -301,6 +302,7 @@ public class DeckView extends javax.swing.JPanel {
         } else {
             decks.add(new Deck(decks.size(),(String) jTextField1.getText(),getItens()));
         }}
+        storage.Save();
         limpar();
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 

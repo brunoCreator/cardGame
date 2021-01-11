@@ -5,6 +5,7 @@
  */
 package br.com.harpiastudios.cardgame.model;
 
+import br.com.harpiastudios.cardgame.controller.SaveController;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +18,9 @@ public class Storage {
     ArrayList<Deck> decks = new  ArrayList<>();
 
     public Storage() {
+        SaveController save = new SaveController();
         usuario = new User("John", "admin", "admin");
+        save.Load(this);
     }
 
     public ArrayList<Card> getCards() {
@@ -42,5 +45,10 @@ public class Storage {
 
     public void setUsuario(User usuario) {
         this.usuario = usuario;
+    }
+    
+    public void Save() {
+        SaveController save = new SaveController();
+        save.Save(this);
     }
 }
