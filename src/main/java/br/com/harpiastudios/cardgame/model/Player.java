@@ -6,6 +6,7 @@
 package br.com.harpiastudios.cardgame.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -102,7 +103,9 @@ public class Player {
     
     private Random rand = new Random();
     public Card getRandomFromHand() {
-        Card res = hand.get(rand.nextInt(hand.size()));
+        ArrayList<Card> tmp = hand;
+        Collections.shuffle(tmp);
+        Card res = tmp.get(tmp.size()-1);
         hand.remove(res);
         return res;
     }
