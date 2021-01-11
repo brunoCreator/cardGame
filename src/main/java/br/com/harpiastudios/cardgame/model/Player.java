@@ -101,6 +101,15 @@ public class Player {
         return res;
     }
     
+    public Card getRandomDiferentOf(Card card) {
+        ArrayList<Card> tmp = hand;
+        Collections.shuffle(tmp);
+        tmp.remove(card);
+        Card res = tmp.get(tmp.size()-1);
+        hand.remove(res);
+        return res;
+    }
+    
     private Random rand = new Random();
     public Card getRandomFromHand() {
         ArrayList<Card> tmp = hand;

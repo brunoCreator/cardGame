@@ -135,7 +135,6 @@ public class BattlefieldController {
                     player.setVida(vida);
                     player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
                     int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER) - player.getHand().size();
-                    System.out.println("Attack: Quantidade de cartas: " + cartas);
                     if (cartas > 0) {
                         for (int i = 0; i < cartas; i++) {
                             if (player.getHand().size() + 1 <= 6) {
@@ -148,7 +147,7 @@ public class BattlefieldController {
                         }
                     } else if (cartas < 0) {
                         for (int i = 0; i < (cartas * -1); i++) {
-                            player.getCemitery().add(player.getRandomFromHand());
+                            player.getCemitery().add(player.getRandomDiferentOf(card));
                         }
                     }
                 } else {
@@ -168,7 +167,7 @@ public class BattlefieldController {
                         }
                     } else if (cartas < 0) {
                         for (int i = 0; i < (cartas * -1); i++) {
-                            enemy.getCemitery().add(enemy.getRandomFromHand());
+                            enemy.getCemitery().add(enemy.getRandomDiferentOf(card));
                         }
                     }
                 }
@@ -194,14 +193,11 @@ public class BattlefieldController {
                     for (Effect effect : card.getEfeito()) {
                         if (!effect.isAlvo()) {
                             int mana = ApplyEffect(effect.getMana(), player.getMana(), TargetEnum.PLAYER);
-                            System.out.println("Mana: " + mana);
                             player.setMana(mana);
                             int vida = ApplyEffect(effect.getVida(), player.getVida(), TargetEnum.PLAYER);
-                            System.out.println("Vida: " + vida);
                             player.setVida(vida);
                             player.setDefesa(ApplyEffect(effect.getDefesa(), player.getDefesa(), TargetEnum.PLAYER));
                             int cartas = ApplyEffect(effect.getCartas(), player.getHand().size(), TargetEnum.PLAYER) - player.getHand().size();
-                            System.out.println("Quantidade de cartas: " + cartas);
                             if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
                                     if (player.getHand().size() + 1 <= 6) {
@@ -214,7 +210,7 @@ public class BattlefieldController {
                                 }
                             } else if (cartas < 0) {
                                 for (int i = 0; i < (cartas * -1); i++) {
-                                    player.getCemitery().add(player.getRandomFromHand());
+                                    player.getCemitery().add(player.getRandomDiferentOf(card));
                                 }
                             }
                             UpdatePlayerHand();
@@ -223,7 +219,6 @@ public class BattlefieldController {
                             enemy.setVida(ApplyEffect(effect.getVida(), enemy.getVida(), TargetEnum.ENEMY));
                             enemy.setDefesa(ApplyEffect(effect.getDefesa(), enemy.getDefesa(), TargetEnum.ENEMY));
                             int cartas = ApplyEffect(effect.getCartas(), enemy.getHand().size(), TargetEnum.ENEMY) - enemy.getHand().size();
-                            System.out.println("Quantidade de cartas: " + cartas);
                             if (cartas > 0) {
                                 for (int i = 0; i < cartas; i++) {
                                     if (enemy.getHand().size() + 1 <= 6) {
@@ -236,7 +231,7 @@ public class BattlefieldController {
                                 }
                             } else if (cartas < 0) {
                                 for (int i = 0; i < (cartas * -1); i++) {
-                                    enemy.getCemitery().add(enemy.getRandomFromHand());
+                                    enemy.getCemitery().add(enemy.getRandomDiferentOf(card));
                                 }
                             }
                             UpdatePlayerHand();
