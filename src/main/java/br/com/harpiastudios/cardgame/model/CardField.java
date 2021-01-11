@@ -37,7 +37,7 @@ public class CardField {
         if (carta != null) {
             nome.setText(carta.getNome().toUpperCase());
             descricao.setText("<html>" + carta.getDescricao() + "</html>");
-            int maxWidth = 145;
+            int maxWidth = 140;
             Dimension size = descricao.getPreferredSize();
             if (size.width > maxWidth) {
                 int lineCount = (int) Math.ceil(((double) size.width) / maxWidth);

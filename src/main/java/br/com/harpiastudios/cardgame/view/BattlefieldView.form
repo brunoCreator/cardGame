@@ -30,8 +30,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="240" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="274" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -380,7 +380,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCardNameF4" alignment="0" pref="140" max="32767" attributes="0"/>
+                          <Component id="lblCardNameF4" alignment="0" pref="133" max="32767" attributes="0"/>
                           <Component id="lblCardDescF4" alignment="0" max="32767" attributes="0"/>
                           <Component id="lblCardCustoF4" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -462,8 +462,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCardNameF1" alignment="0" pref="140" max="32767" attributes="0"/>
-                          <Component id="lblCardCustoF1" alignment="0" pref="140" max="32767" attributes="0"/>
+                          <Component id="lblCardNameF1" alignment="0" pref="135" max="32767" attributes="0"/>
+                          <Component id="lblCardCustoF1" alignment="0" pref="135" max="32767" attributes="0"/>
                           <Component id="lblCardDescF1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -544,7 +544,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCardNameF3" alignment="0" pref="140" max="32767" attributes="0"/>
+                          <Component id="lblCardNameF3" alignment="0" pref="133" max="32767" attributes="0"/>
                           <Component id="lblCardDescF3" alignment="0" max="32767" attributes="0"/>
                           <Component id="lblCardCustoF3" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -626,7 +626,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCardNameF6" alignment="0" pref="140" max="32767" attributes="0"/>
+                          <Component id="lblCardNameF6" alignment="0" pref="134" max="32767" attributes="0"/>
                           <Component id="lblCardDescF6" alignment="0" max="32767" attributes="0"/>
                           <Component id="lblCardCustoF6" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -709,7 +709,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="lblCardCustoF2" max="32767" attributes="0"/>
-                          <Component id="lblCardNameF2" alignment="0" pref="140" max="32767" attributes="0"/>
+                          <Component id="lblCardNameF2" alignment="0" pref="135" max="32767" attributes="0"/>
                           <Component id="lblCardDescF2" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
